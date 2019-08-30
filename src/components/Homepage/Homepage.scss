@@ -28,6 +28,16 @@
             display: flex;
             justify-content: space-between;
         }
+
+        #samples-browse {
+            height: 100px;
+            width: 100px;
+            background-color: gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
     }
 
     #homepage-directions {
