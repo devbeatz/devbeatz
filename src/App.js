@@ -4,7 +4,6 @@ import Homepage from "./components/Homepage/Homepage";
 import { connect } from "react-redux";
 import LoginRegister from "./components/LoginRegister/LoginRegister";
 import { toggleLoginModal } from "./redux/reducers/authReducer";
-import Track from "./components/Track/Track";
 
 function App(props) {
   return (

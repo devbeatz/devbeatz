@@ -46,11 +46,7 @@ function Homepage(props) {
           <SampleTrack coverImage={djImage} />
           <SampleTrack coverImage={djImage} />
           <SampleTrack coverImage={djImage} />
-<<<<<<< HEAD
-          <div id="samples-browse">Browse Tracks</div>
-=======
           <button>Browse Beats</button>
->>>>>>> bd88e5cadd0d50dd3a1fb3e6dde7bf5dd223a66f
         </div>
         {/* </div> */}
       </div>
