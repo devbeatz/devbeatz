@@ -2,7 +2,9 @@ const bcrypt = require('bcryptjs');
 
 module.exports = {
     register: async (req, res) => {
+        console.log(req.body)
         const { username, email, password } = req.body;
+        console.log(username)
         const db = req.app.get('db');
         const result = await db.get_user([email]);
         const existingUser = result[0];
@@ -10,7 +12,7 @@ module.exports = {
             return res.status(409).json('Username taken');
         }
         const hash = await bcrypt.hash(password, 10);
-        const registeredUser = db.register_user([username, email, hash]);
+        const registeredUser = await db.register_user([username, email, hash]);
         let user = registeredUser[0];
         req.session.user = {
             username: user.username,
@@ -23,10 +25,11 @@ module.exports = {
         const db = req.app.get('db');
         const founduser = await db.get_user([email]);
         const user = founduser[0];
+        console.log(user.password)
         if(!user){
             res.status(401).json('User not found please register before trying to login');
         }
-        const isAuthenticated = bcrypt.compareSync(password, user.password);
+        const isAuthenticated = await bcrypt.compareSync(password, user.password);
         if(!isAuthenticated){
             res.status(409).json('incorrect password');
         }
