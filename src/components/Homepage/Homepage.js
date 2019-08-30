@@ -3,6 +3,8 @@ import "./Homepage.scss";
 import djImage from "../../images/dj-sound-mixer.jpg";
 import SampleTrack from "../SampleTrack/SampleTrack";
 import Footer from "../Footer/Footer";
+import { connect } from "react-redux";
+import { toggleLoginModal } from "../../redux/reducers/authReducer";
 
 function Homepage(props) {
   return (
@@ -21,8 +23,12 @@ function Homepage(props) {
             beat that you've created.
           </p>
           <div id="login-register-buttons">
-            <button>Register</button>
-            <button>Login</button>
+            <button onClick={() => props.toggleLoginModal("register")}>
+              Register
+            </button>
+            <button onClick={() => props.toggleLoginModal("login")}>
+              Login
+            </button>
           </div>
         </div>
         <div id="hero-image">
@@ -39,6 +45,7 @@ function Homepage(props) {
           <SampleTrack coverImage={djImage} />
           <SampleTrack coverImage={djImage} />
           <SampleTrack coverImage={djImage} />
+          <div id="samples-browse">Browse Tracks</div>
         </div>
       </div>
       <div id="homepage-directions">
@@ -55,7 +62,9 @@ function Homepage(props) {
                 most on your Dashboard.
               </p>
             </div>
-            <button>Login</button>
+            <button onClick={() => props.toggleLoginModal("login")}>
+              Login
+            </button>
           </div>
           <div id="directions-artist">
             <div id="artist-info">
@@ -78,4 +87,13 @@ function Homepage(props) {
   );
 }
 
-export default Homepage;
+function mapStateToProps(reduxState) {
+  return {
+    // loggedIn: reduxState.auth.loggedIn
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { toggleLoginModal }
+)(Homepage);
