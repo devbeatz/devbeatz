@@ -1,8 +1,8 @@
 import React from "react";
 import "./Homepage.scss";
-import djImage from "../images/dj-sound-mixer.jpg";
-import SampleTrack from "../components/SampleTrack/SampleTrack";
-import Footer from "../components/Footer/Footer";
+import djImage from "../../images/dj-sound-mixer.jpg";
+import SampleTrack from "../SampleTrack/SampleTrack";
+import Footer from "../Footer/Footer";
 
 function Homepage(props) {
   return (
