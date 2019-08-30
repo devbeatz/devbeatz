@@ -37,6 +37,7 @@
         flex-direction: column;
         background-color: lightgray;
         align-items: center;
+        justify-content: space-around;
 
         #directions-columns {
             height: 250px;
@@ -46,7 +47,7 @@
 
             &>div {
                 width: 45%;
-                height: 100%;
+                height: 90%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;

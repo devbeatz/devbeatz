@@ -1,6 +1,5 @@
 import React from "react";
 import "./SampleTrack.scss";
-import sampleImage from "../../images/dj-sound-mixer.jpg";
 
 function SampleTrack(props) {
   return (
