@@ -14,10 +14,7 @@ module.exports = {
         const hash = await bcrypt.hash(password, 10);
         const registeredUser = await db.register_user([username, email, hash]);
         let user = registeredUser[0];
-        req.session.user = {
-            username: user.username,
-            email: user.email
-        }
+        req.session.user = user;
         return res.status(201).send(req.session.user);
     },
     login: async (req, res) => {
@@ -25,7 +22,6 @@ module.exports = {
         const db = req.app.get('db');
         const founduser = await db.get_user([email]);
         const user = founduser[0];
-        console.log(user.password)
         if(!user){
             res.status(401).json('User not found please register before trying to login');
         }
@@ -33,10 +29,7 @@ module.exports = {
         if(!isAuthenticated){
             res.status(409).json('incorrect password');
         }
-        req.session.user = {
-            username: user.username,
-            email: user.email
-        }
+        req.session.user = user;
         return res.send(req.session.user);
     },
     logout: async (req, res) => {
