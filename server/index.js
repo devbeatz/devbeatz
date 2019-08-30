@@ -4,7 +4,7 @@ const massive = require('massive');
 const session = require('express-session');
 const auth = require('./controllers/authController');
 const tracks = require('./controllers/trackController');
-//const purchases = require('./controllers/purchaseController');/
+const purchases = require('./controllers/purchaseController');
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
 
@@ -31,16 +31,14 @@ app.get('/auth/logout', auth.logout);
 //track
 app.get('/tracks/getall', tracks.getall);
 app.get('/tracks/getuser', tracks.getUserTracks);
-//app.get('/tracks/getusersold', track.getUserSold);
-//app.get('/tracks/getuserbought', tracks.getUserBought);
 app.post('/tracks/create', tracks.create);
 app.delete('/tracks/delete/:id', tracks.delete);
 app.put('/tracks/update/:id', tracks.update);
 
 //purchase
-//app.post('/purchases/make', purchases.make);
-//app.get('/purchases/userSales', purchases.userSales);
-//app.get('/purchases/userBought', purchases.userBought);
+app.post('/purchases/make', purchases.make);
+app.get('/purchases/userSales', purchases.userSales);
+app.get('/purchases/userBought', purchases.userBought);
 
 
 app.listen(SERVER_PORT, () => console.log(`listening on port: ${SERVER_PORT}`));
