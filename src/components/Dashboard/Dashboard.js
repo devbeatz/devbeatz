@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import "./Dashboard.scss";
 import Track from "../Track/Track";
+import Footer from "../Footer/Footer";
 
 function Dashboard(props) {
   const sampleBeats = [
@@ -76,7 +77,7 @@ function Dashboard(props) {
         <div id="dashboard-main">
           <div id="upload-section">
             <div id="dashboard-upload">
-              <div>upload beat</div>
+              <div>upload new beat</div>
             </div>
             <div id="uploaded-beats">
               <h3>Uploaded Beats</h3>
@@ -106,6 +107,7 @@ function Dashboard(props) {
             })}
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );

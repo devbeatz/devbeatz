@@ -3,6 +3,7 @@ import "./Browse.scss";
 import Sidebar from "../Sidebar/Sidebar";
 import Track from "../Track/Track";
 import BeatCarousel from "../BeatCarousel/BeatCarousel";
+import Footer from "../Footer/Footer";
 
 function Browse(props) {
   const sampleTop5 = [
@@ -70,6 +71,7 @@ function Browse(props) {
           })}
         </div>
         <div id="browse-all-tracks"></div>
+        <Footer />
       </div>
     </div>
   );

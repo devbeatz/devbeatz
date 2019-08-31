@@ -1,5 +1,6 @@
 import React from "react";
 import "./Homepage.scss";
+import { Link } from "react-router-dom";
 import djImage from "../../images/dj-sound-mixer.jpg";
 import SampleTrack from "../SampleTrack/SampleTrack";
 import Footer from "../Footer/Footer";
@@ -46,7 +47,9 @@ function Homepage(props) {
           <SampleTrack coverImage={djImage} />
           <SampleTrack coverImage={djImage} />
           <SampleTrack coverImage={djImage} />
-          <button>Browse Beats</button>
+          <Link to="/Browse">
+            <button>Browse Beats</button>
+          </Link>
         </div>
         {/* </div> */}
       </div>
