@@ -89,7 +89,9 @@ function Homepage(props) {
                 </p>
               </div>
             </div>
-            <button>Browse Beats</button>
+            <Link to="/Browse">
+              <button>Browse Beats</button>
+            </Link>
           </div>
         </div>
       </div>

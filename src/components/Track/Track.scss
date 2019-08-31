@@ -4,41 +4,58 @@
     background-color: black;
     color: white;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
     margin: 20px;
-    padding: 10px;
 
-    #track-info {
+    #track-player-div {
+        width: 90%;
+        margin: 10px;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
 
-        #track-producer {
+        #track-info {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
 
-            img {
-                height: 50px;
-                width: 50px;
-                border-radius: 50%;
-                margin-right: 10px;
+            #track-producer {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                img {
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
             }
         }
-    }
 
-    #track-player {
-        height: 70px;
-        width: 90%;
-        display: flex;
-        align-items: center;
-        margin: auto auto 5px auto;
+        #track-player {
+            height: 70px;
+            width: 90%;
+            display: flex;
+            align-items: center;
+            margin: auto auto 5px auto;
+        }
     }
 
     #track-buttons {
         display: flex;
-        justify-content: space-around;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-end;
+        height: 100%;
+        width: 5%;
+
+        button {
+            height: 50%;
+            width: 100%;
+            background-color: rgb(48, 48, 48);
+            border: 1px solid black;
+            color: white;
+        }
     }
 }
