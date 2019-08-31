@@ -4,6 +4,8 @@ import Homepage from "./components/Homepage/Homepage";
 import { connect } from "react-redux";
 import LoginRegister from "./components/LoginRegister/LoginRegister";
 import { toggleLoginModal } from "./redux/reducers/authReducer";
+import Browse from "./components/Browse/Browse";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App(props) {
   return (
@@ -12,8 +14,9 @@ function App(props) {
         show={props.loginModal}
         onHide={() => props.toggleLoginModal("")}
       />
-
-      <Homepage />
+      {/* <Browse /> */}
+      {/* <Homepage /> */}
+      <Dashboard />
     </div>
   );
 }

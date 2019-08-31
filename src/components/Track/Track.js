@@ -20,13 +20,21 @@ function Track(props) {
       <div id="track-player">
         <ClippPlayer
           className={"clipp-player"}
-          src="https://beatzz.s3.amazonaws.com/bensound-summer.mp3"
+          src="https://beatzz.s3.amazonaws.com/bensound-allthat.mp3"
           btnStyle={{
+            marginTop: "-18px",
+            height: "50px",
+            width: "50px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
             color: "orange",
             background: "teal",
-            borderRadius: "30px"
+            borderRadius: "50%"
           }}
           counterStyle={{
+            marginTop: "-17px",
+            fontSize: "30px",
             color: "teal"
           }}
           volume={1}
@@ -35,10 +43,12 @@ function Track(props) {
             audioRate: 1,
             autoCenter: true,
             barGap: 1,
-            cursorColor: "blue",
+            barHeight: 7,
+            barWidth: 2,
+            cursorColor: "teal",
             cursorWidth: 1,
             fillParent: true,
-            height: 100,
+            height: 60,
             hideScrollbar: true,
             normalize: true,
             partialRender: true,
@@ -49,8 +59,8 @@ function Track(props) {
         />
       </div>
       <div id="track-buttons">
-        <button>Purchase</button>
-        <button>Add to Faves</button>
+        {/* <button>Purchase</button>
+        <button>Add to Faves</button> */}
       </div>
     </div>
   );

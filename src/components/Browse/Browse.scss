@@ -1,0 +1,48 @@
+#browse {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+
+    #browse-beats {
+        width: calc(100% - 250px);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-y: auto;
+
+        #genre-cards {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            h1 {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .genre-card {
+                width: 17%;
+                height: calc(17vw - 50px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: lightblue;
+                color: white;
+                font-size: 30px;
+                margin: 20px 0;
+            }
+        }
+
+        #browse-top5 {
+            width: 100%;
+            background-color: lightgray;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+}
