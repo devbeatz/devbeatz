@@ -18,10 +18,9 @@ function Homepage(props) {
           <div id="homepage-title">BEATZ</div>
           {/* <h3>About</h3> */}
           <div id="homepage-about">
-            <p>
-              A marketplace dedicated to connecting skilled producers with
-              talented vocal artists.
-            </p>
+            {/* <p> */}A marketplace dedicated to connecting skilled producers
+            with talented vocal artists.
+            {/* </p> */}
           </div>
           <div id="login-register-buttons">
             <button onClick={() => props.toggleLoginModal("register")}>
@@ -60,14 +59,20 @@ function Homepage(props) {
         <div id="directions-columns">
           <div id="directions-producer">
             <div id="producer-info">
-              <h3>Producers</h3>
+              <div className="headline">
+                <h3>Producers</h3>
+              </div>
               <div id="directions-text">
                 <p>
-                  To upload a beat that you have created simply login and go to
+                  Login to your dashboard and upload your latest beat. Add a
+                  description and set your prices: base for everyone and
+                  exclusive for single-buy. Once you begin selling, you'll see
+                  which beats have sold the most.
+                  {/* To upload a beat that you have created simply login and go to
                   your Dashboard. We make it very easy to set your price and
                   give details about the beat that you created. After you have
                   made some sales remember to check out which beats are being
-                  sold the most on your Dashboard.
+                  sold the most on your Dashboard. */}
                 </p>
               </div>
             </div>
@@ -77,15 +82,22 @@ function Homepage(props) {
           </div>
           <div id="directions-artist">
             <div id="artist-info">
-              <h3>Vocal Artists</h3>
+              <div className="headline">
+                <h3>Vocal Artists</h3>
+              </div>
               <div id="directions-text">
                 <p>
-                  If you are looking for that beat that feels special we have a
+                  Browse by genre, price, or producer to pick the fire beat for
+                  your vocals. Register or login first in order to redownload
+                  and keep track of the beats you have purchased. If you do not
+                  create an account with us, you can still browse and purchase
+                  beats, but you will not be able to keep track or re-download.
+                  {/* If you are looking for that beat that feels special we have a
                   great variety of beats to browse. You can search by genre,
                   price, or producer. Remember to register or login first so you
                   can keep track of beats that you purchase. This also allows
                   you to re-download if something happens to your downloaded
-                  audio file.
+                  audio file. */}
                 </p>
               </div>
             </div>
