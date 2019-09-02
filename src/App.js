@@ -1,13 +1,33 @@
 import React from "react";
 import "./App.css";
-import Homepage from "./components/Homepage/Homepage";
+import { HashRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import routes from "./components/routes";
+import LoginRegister from "./components/LoginRegister/LoginRegister";
+import { toggleLoginModal } from "./redux/reducers/authReducer";
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <Homepage />
-    </div>
+    <HashRouter>
+      <div className="App">
+        <LoginRegister
+          show={props.loginModal}
+          onHide={() => props.toggleLoginModal("")}
+        />
+        {routes}
+      </div>
+    </HashRouter>
   );
 }
 
-export default App;
+function mapStateToProps(reduxState) {
+  return {
+    loginModal: reduxState.auth.loginModal,
+    loggedIn: reduxState.auth.loggedIn
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { toggleLoginModal }
+)(App);
