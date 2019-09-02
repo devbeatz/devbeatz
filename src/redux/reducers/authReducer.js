@@ -22,7 +22,7 @@ const TOGGLE_LOGIN_REGISTER = "TOGGLE_LOGIN_REGISTER";
 export function loginUser(user) {
   return {
     type: LOGIN_USER
-    // action: axios.post().then(res => {
+    // payload: axios.post().then(res => {
     //     return res.data;
     // })
   };
@@ -31,7 +31,7 @@ export function loginUser(user) {
 export function registerUser(user) {
   return {
     type: REGISTER_USER
-    // action: axios.post().then(res => {
+    // payload: axios.post().then(res => {
     //     return res.data;
     // })
   };
@@ -40,14 +40,14 @@ export function registerUser(user) {
 export function logoutUser() {
   return {
     type: LOGOUT_USER
-    // action: axios.get()
+    // payload: axios.get()
   };
 }
 
 export function updateUserInfo(userInfo) {
   return {
     type: UPDATE_USER_INFO
-    // action: axios.put().then(res => {
+    // payload: axios.put().then(res => {
     //     return res.data
     // })
   };
