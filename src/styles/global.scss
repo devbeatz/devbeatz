@@ -7,7 +7,7 @@ $header-font: "Righteous", cursive;
 $body-font: "Raleway", sans-serif;
 $body-font-color: white;
 
-@mixin button {
+button {
   width: 130px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -31,7 +31,7 @@ $body-font-color: white;
   }
 }
 
-@mixin a {
+a {
   color: $pink-color;
   text-decoration: none;
 
