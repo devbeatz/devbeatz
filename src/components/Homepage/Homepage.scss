@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Righteous|Cabin&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Righteous|Raleway&display=swap");
 
 #homepage {
   display: flex;
@@ -21,54 +21,43 @@
   #homepage-title {
     font-family: "Righteous", cursive;
     color: #19f4fb;
-    text-shadow: 5px 5px #f9f624;
+    text-shadow: 5px 5px #e91e63;
     font-size: 10em;
     font-style: italic;
     letter-spacing: 0.3em;
   }
 
   #homepage-about {
-    font-family: "Cabin", sans-serif;
+    font-family: "Raleway", sans-serif;
     color: white;
-    font-size: 1.25em;
-    text-transform: uppercase;
-    // padding-bottom: 25px;
-    margin: 60px;
-    // background: rgba(255, 255, 255, 0.75);
-    background: black;
+    font-size: 1.2em;
+    // text-transform: uppercase;
+    font-style: italic;
     font-weight: 600;
+    padding: 10px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    margin-left: 170px;
+    margin-right: 170px;
+    background: #e91e63;
+    opacity: 0.75;
+    // border: 2px dotted white;
+  }
+
+  #login-register-buttons {
+    display: flex;
+    justify-content: space-evenly;
   }
 
   #homepage-samples-text {
     font-family: "Righteous", cursive;
-    color: #ffffff;
-    text-shadow: 3px 3px #19f4fb;
+    color: #19f4fb;
+    // text-shadow: 4px 4px #e91e63;
+    text-shadow: 4px 4px #e91e63;
+    // text-shadow: 4px 4px #19f4fb;
     font-size: 3.5em;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
-  }
-
-  button {
-    height: 40px;
-    width: 120px;
-    background: transparent;
-    border-radius: 0;
-    color: white;
-    font-size: 15px;
-    margin-left: 30px;
-    box-shadow: inset 0 0 1em rgba(0, 170, 170, 0.5),
-      0 0 1em rgba(0, 170, 170, 0.5);
-    border: #0dd solid 2px;
-    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
-    text-transform: uppercase;
-    font-family: "Cabin", sans-serif;
-    letter-spacing: 0.18em;
-
-    &:hover {
-      background-color: #0dd;
-      box-shadow: inset 0 0 0 rgba(0, 170, 170, 0.5),
-        0 0 1.5em rgba(0, 170, 170, 0.7);
-    }
   }
 
   #homepage-samples {
@@ -78,12 +67,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: #000000;
+    // background-color: #220706;
+    background-color: #1c0004;
 
     #samples {
-      width: 100%;
+      width: 80%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      padding-bottom: 40px;
     }
   }
 
@@ -95,12 +87,12 @@
     align-items: center;
     justify-content: space-around;
     background-image: url("../../images/turntableCopy.jpg");
-    // background-size: 3000px 400px;
     background-repeat: no-repeat;
 
     #directions-header {
       font-family: "Righteous", cursive;
-      color: white;
+      color: #19f4fb;
+      text-shadow: 3.5px 3.5px #e91e63;
       text-transform: uppercase;
       font-size: 1.5em;
       letter-spacing: 0.4em;
@@ -110,10 +102,10 @@
       height: 250px;
       width: 80%;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
 
       & > div {
-        width: 45%;
+        width: 35%;
         height: 90%;
         display: flex;
         padding: 5px;
@@ -123,11 +115,29 @@
 
         & > div {
           height: 80%;
-          background-color: white;
-          font-family: "Cabin", sans-serif;
-          text-align: left;
+          background: inherit;
+          font-family: "Raleway", sans-serif;
+          color: white;
+          text-align: justify;
         }
       }
     }
+  }
+  #directions-producer {
+    backdrop-filter: blur(10px);
+    line-height: 1.5em;
+  }
+
+  #directions-artist {
+    backdrop-filter: blur(8px);
+    line-height: 1.5em;
+  }
+
+  .headline {
+    text-align: center;
+    color: #19f4fb;
+    text-transform: uppercase;
+    text-shadow: 1px 1px #19f4fb;
+    font-weight: bolder;
   }
 }
