@@ -1,8 +1,11 @@
 import React from "react";
 import "./Homepage.scss";
+import { Link } from "react-router-dom";
 import djImage from "../../images/dj-sound-mixer.jpg";
 import SampleTrack from "../SampleTrack/SampleTrack";
 import Footer from "../Footer/Footer";
+import { connect } from "react-redux";
+import { toggleLoginModal } from "../../redux/reducers/authReducer";
 
 function Homepage(props) {
   return (
@@ -20,8 +23,12 @@ function Homepage(props) {
             {/* </p> */}
           </div>
           <div id="login-register-buttons">
-            <button>Register</button>
-            <button>Login</button>
+            <button onClick={() => props.toggleLoginModal("register")}>
+              Register
+            </button>
+            <button onClick={() => props.toggleLoginModal("login")}>
+              Login
+            </button>
           </div>
         </div>
         {/* <div id="hero-image">
@@ -39,7 +46,9 @@ function Homepage(props) {
           <SampleTrack coverImage={djImage} />
           <SampleTrack coverImage={djImage} />
           <SampleTrack coverImage={djImage} />
-          <button>Browse Beats</button>
+          <Link to="/Browse">
+            <button>Browse Beats</button>
+          </Link>
         </div>
         {/* </div> */}
       </div>
@@ -67,7 +76,9 @@ function Homepage(props) {
                 </p>
               </div>
             </div>
-            <button>Login</button>
+            <button onClick={() => props.toggleLoginModal("login")}>
+              Login
+            </button>
           </div>
           <div id="directions-artist">
             <div id="artist-info">
@@ -90,7 +101,9 @@ function Homepage(props) {
                 </p>
               </div>
             </div>
-            <button>Browse</button>
+            <Link to="/Browse">
+              <button>Browse Beats</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -99,4 +112,13 @@ function Homepage(props) {
   );
 }
 
-export default Homepage;
+function mapStateToProps(reduxState) {
+  return {
+    // loggedIn: reduxState.auth.loggedIn
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { toggleLoginModal }
+)(Homepage);
