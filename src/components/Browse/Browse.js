@@ -4,6 +4,16 @@ import Sidebar from "../Sidebar/Sidebar";
 import Track from "../Track/Track";
 import BeatCarousel from "../BeatCarousel/BeatCarousel";
 import Footer from "../Footer/Footer";
+import AlternativeCover from "../../images/AlternativeCover.png";
+import BluesCover from "../../images/BluesCover.png";
+import FreestyleCover from "../../images/FreestyleCover.png";
+import HipHopCover from "../../images/HipHopCover.png";
+import OldSchoolCover from "../../images/OldSchoolCover.png";
+import PopCover from "../../images/PopCover.png";
+import RnBCover from "../../images/RnBCover.png";
+import SoulCover from "../../images/SoulCover.png";
+import TrapCover from "../../images/TrapCover.png";
+import UndergroundCover from "../../images/UndergroundCover.png";
 
 function Browse(props) {
   const sampleTop5 = [
@@ -44,22 +54,51 @@ function Browse(props) {
       <Sidebar />
       <div id="browse-beats">
         <div id="genre-cards">
-          <h1>Browse by Genre</h1>
-          <div className="genre-card">Alternative</div>
-          <div className="genre-card">Blues</div>
-          <div className="genre-card">Freestyle</div>
-          <div className="genre-card">Hip-Hop</div>
-          <div className="genre-card">Old School</div>
-          <div className="genre-card">Pop</div>
-          <div className="genre-card">R&B</div>
-          <div className="genre-card">Soul</div>
-          <div className="genre-card">Trap</div>
-          <div className="genre-card">Underground</div>
+          <h2>
+            <span role="img" aria-label="headphones">
+              🎧
+            </span>{" "}
+            Browse by Genre
+          </h2>
+          <div className="genre-card">
+            <img src={AlternativeCover} alt="" className="albumCover"></img>
+          </div>
+          <div className="genre-card">
+            <img src={BluesCover} alt="" />
+          </div>
+          <div className="genre-card">
+            <img src={FreestyleCover} alt="" />
+          </div>
+          <div className="genre-card">
+            <img src={HipHopCover} alt="" />
+          </div>
+          <div className="genre-card">
+            <img src={OldSchoolCover} alt="" />
+          </div>
+          <div className="genre-card">
+            <img src={PopCover} alt="" />
+          </div>
+          <div className="genre-card">
+            <img src={RnBCover} alt="" />
+          </div>
+          <div className="genre-card">
+            <img src={SoulCover} alt="" />
+          </div>
+          <div className="genre-card">
+            <img src={TrapCover} alt="" />
+          </div>
+          <div className="genre-card">
+            <img src={UndergroundCover} alt="" />
+          </div>
         </div>
         <div id="browse-top5">
-          <h1>En Fuego</h1>
-          <h4>Top 5 Tracks</h4>
-          {sampleTop5.map((e, i) => {
+          <h2>
+            <span role="img" aria-label="fire">
+              🔥
+            </span>{" "}
+            This Week's Fuego Tracks
+          </h2>
+          {sampleTop5.map(e => {
             return (
               <Track
                 key={i}

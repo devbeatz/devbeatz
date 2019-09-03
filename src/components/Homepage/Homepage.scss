@@ -139,5 +139,10 @@
     text-transform: uppercase;
     text-shadow: 1px 1px #19f4fb;
     font-weight: bolder;
+
+    & > h3 {
+      font-family: "Raleway", sans-serif;
+      font-size: 1.3em;
+    }
   }
 }
