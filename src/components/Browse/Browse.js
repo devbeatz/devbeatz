@@ -101,6 +101,7 @@ function Browse(props) {
           {sampleTop5.map(e => {
             return (
               <Track
+                key={i}
                 producerName={"someDude"}
                 trackTitle={"FireFlame"}
                 basePrice={"15.00"}

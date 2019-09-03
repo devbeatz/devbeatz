@@ -81,9 +81,9 @@ function Dashboard(props) {
             </div>
             <div id="uploaded-beats">
               <h3>Uploaded Beats</h3>
-              {sampleBeats.map(e => {
+              {sampleBeats.map((e, i) => {
                 return (
-                  <div>
+                  <div key={i}>
                     <p>{e.trackTitle}</p>
                     <p>uploaded on {e.uploadDate}</p>
                     <p>sold {e.soldCount} times</p>
@@ -95,9 +95,10 @@ function Dashboard(props) {
           </div>
           <div id="purchased-beats">
             <h3>Purchased Beats</h3>
-            {sampleBeats.map(e => {
+            {sampleBeats.map((e, i) => {
               return (
                 <Track
+                  key={i}
                   producerName={"someDude"}
                   trackTitle={"FireFlame"}
                   basePrice={"15.00"}
