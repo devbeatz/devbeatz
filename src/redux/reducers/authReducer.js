@@ -21,26 +21,26 @@ const TOGGLE_LOGIN_REGISTER = "TOGGLE_LOGIN_REGISTER";
 
 export function loginUser(user) {
   return {
-    type: LOGIN_USER
-    // payload: axios.post().then(res => {
-    //     return res.data;
-    // })
+    type: LOGIN_USER,
+    payload: axios.post("/auth/login", user).then(res => {
+      return res.data;
+    })
   };
 }
 
 export function registerUser(user) {
   return {
-    type: REGISTER_USER
-    // payload: axios.post().then(res => {
-    //     return res.data;
-    // })
+    type: REGISTER_USER,
+    payload: axios.post("/auth/register", user).then(res => {
+      return res.data;
+    })
   };
 }
 
 export function logoutUser() {
   return {
-    type: LOGOUT_USER
-    // payload: axios.get()
+    type: LOGOUT_USER,
+    payload: axios.get("/auth/logout")
   };
 }
 
@@ -72,6 +72,7 @@ export default function reducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case `${LOGIN_USER}_FULFILLED`:
+      console.log(payload);
       return {
         ...state,
         username: payload.username,
@@ -91,11 +92,37 @@ export default function reducer(state = initialState, action) {
         errorMessage: ""
       };
     case `${LOGIN_USER}_REJECTED`:
+      console.log(payload);
       return {
         ...state,
         loading: false,
         error: true,
-        errorMessage: payload
+        errorMessage: "Username or password is incorrect"
+      };
+    case `${REGISTER_USER}_FULFILLED`:
+      console.log("register fulfilled");
+      return {
+        ...state,
+        username: payload.username,
+        email: payload.email,
+        loading: false,
+        error: false,
+        loginModal: false
+      };
+    case `${REGISTER_USER}_PENDING`:
+      return {
+        ...state,
+        loading: true,
+        error: false,
+        errorMessage: ""
+      };
+    case `${REGISTER_USER}_REJECTED`:
+      console.log("register rejected");
+      return {
+        ...state,
+        loading: false,
+        error: true,
+        errorMessage: "Username taken"
       };
     case `${LOGOUT_USER}_FULFILLED`:
       return initialState;

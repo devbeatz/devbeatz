@@ -59,9 +59,10 @@ function Browse(props) {
         <div id="browse-top5">
           <h1>En Fuego</h1>
           <h4>Top 5 Tracks</h4>
-          {sampleTop5.map(e => {
+          {sampleTop5.map((e, i) => {
             return (
               <Track
+                key={i}
                 producerName={"someDude"}
                 trackTitle={"FireFlame"}
                 basePrice={"15.00"}
