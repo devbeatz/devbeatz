@@ -1,37 +1,73 @@
+@import url("https://fonts.googleapis.com/css?family=Righteous|Raleway&display=swap");
+
 #sidebar {
-    width: 250px;
-    height: 100vh;
+  width: 210px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #1c0004;
+  color: lightgray;
+
+  #logo-div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    background-color: black;
-    color: lightgray;
+    margin: 20px;
 
-    #logo-div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        #logo {
-            height: 80px;
-            width: 80px;
-            background-color: blue;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-        }
+    #logo {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
     }
+  }
 
-    #sidebar-search {
-        display: flex;
-        flex-direction: column;
-    }
+  h1 {
+    font-family: "Righteous", cursive;
+    color: #19f4fb;
+    text-shadow: 4.5px 4.5px #e91e63;
+  }
 
-    #sidebar-user-info {
-        display: flex;
-        flex-direction: column;
+  #sidebar-search {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+
+    h3 {
+      font-family: "Righteous", cursive;
+      color: #19f4fb;
+      text-shadow: 4px 4px #e91e63;
+      margin: 10px;
     }
+  }
+
+  input[type="text"] {
+    border: none;
+    border-bottom: 3px solid #e91e63;
+  }
+
+  #genre-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 35px;
+  }
+
+  #sidebar-user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h3 {
+      font-family: "Righteous", cursive;
+      color: #19f4fb;
+      text-shadow: 4px 4px #e91e63;
+      margin: 0 10px 10px 10px;
+    }
+  }
 }
