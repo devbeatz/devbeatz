@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import btzLogo from "../../images/btzLogo.png";
 import "./Sidebar.scss";
+import { connect } from "react-redux";
+import { logoutUser } from "../../redux/reducers/authReducer";
 
 function Sidebar(props) {
   return (
@@ -42,10 +44,23 @@ function Sidebar(props) {
       <div id="sidebar-user-info">
         <h3>User</h3>
         <a href="/">Account Info</a>
-        <a href="/">Logout</a>
+        {props.loggedIn && (
+          <a href="/" onClick={props.logoutUser}>
+            Logout
+          </a>
+        )}
       </div>
     </div>
   );
 }
 
-export default Sidebar;
+function mapStateToProps(reduxState) {
+  return {
+    loggedIn: reduxState.auth.loggedIn
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Sidebar);
