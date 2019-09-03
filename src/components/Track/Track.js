@@ -2,6 +2,8 @@ import React from "react";
 import "./Track.scss";
 import ClippPlayer from "clipp-player";
 import sampleImage from "../../images/dj-sound-mixer.jpg";
+import favoriteHeart from "../../images/favoriteHeart.png";
+import dollar from "../../images/USdollar.png";
 
 function Track(props) {
   return (
@@ -29,14 +31,14 @@ function Track(props) {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              color: "orange",
-              background: "teal",
+              color: "white",
+              background: "hotpink",
               borderRadius: "50%"
             }}
             counterStyle={{
               marginTop: "-17px",
               fontSize: "30px",
-              color: "teal"
+              color: "hotpink"
             }}
             volume={1}
             zoom={1}
@@ -53,16 +55,20 @@ function Track(props) {
               hideScrollbar: true,
               normalize: true,
               partialRender: true,
-              progressColor: "orange",
+              progressColor: "hotpink",
               responsive: true,
-              waveColor: "teal"
+              waveColor: "white"
             }}
           />
         </div>
       </div>
       <div id="track-buttons">
-        <button>$</button>
-        <button>&lt;3</button>
+        <button>
+          <img src={dollar} alt="" className="icons" />
+        </button>
+        <button>
+          <img src={favoriteHeart} alt="" className="icons" />
+        </button>
       </div>
     </div>
   );
