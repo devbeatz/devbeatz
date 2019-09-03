@@ -6,6 +6,7 @@ import SampleTrack from "../SampleTrack/SampleTrack";
 import Footer from "../Footer/Footer";
 import { connect } from "react-redux";
 import { toggleLoginModal } from "../../redux/reducers/authReducer";
+import BeatCarousel from "../BeatCarousel/BeatCarousel";
 
 function Homepage(props) {
   return (
@@ -40,6 +41,7 @@ function Homepage(props) {
         {/* samples section */}
         <div id="homepage-samples-text">Samples</div>
         {/* <div id="samples-box"> */}
+        {/* <BeatCarousel /> */}
         <div id="samples">
           <SampleTrack coverImage={djImage} />
           <SampleTrack coverImage={djImage} />

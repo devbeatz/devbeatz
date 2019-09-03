@@ -1,16 +1,16 @@
-@import url("https://fonts.googleapis.com/css?family=Righteous|Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Righteous|Raleway|Work+Sans&display=swap");
 
 $pink-color: #e91e63;
 $neon-blue-color: #19f4fb;
 $emphasis-color: #e91e63;
 $header-font: "Righteous", cursive;
-$body-font: "Raleway", sans-serif;
+$body-font: "Work Sans", sans-serif;
 $body-font-color: white;
 
 button {
   width: 130px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   background: transparent;
   border-radius: 0;
   color: white;
@@ -22,7 +22,7 @@ button {
   text-transform: uppercase;
   font-family: $body-font;
   font-weight: bold;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.15em;
 
   &:hover {
     background-color: #0dd;
@@ -34,9 +34,11 @@ button {
 a {
   color: $pink-color;
   text-decoration: none;
+  font-family: $body-font;
 
   &:hover {
     font-weight: bold;
+    text-decoration: none;
   }
 
   &:visited {

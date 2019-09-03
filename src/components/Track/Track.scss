@@ -1,61 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Righteous|Raleway|Work+Sans&display=swap");
+
 #track {
-    width: 85%;
-    height: 160px;
-    background-color: black;
-    color: white;
+  width: 85%;
+  height: 120px;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
+  border-radius: 30px;
+  font-family: "Work Sans", sans-serif;
+  font-size: 0.75em;
+
+  h3 {
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.4em;
+  }
+
+  #track-player-div {
+    width: 90%;
+    margin: 10px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    margin: 20px;
+    flex-direction: column;
 
-    #track-player-div {
-        width: 90%;
-        margin: 10px;
+    #track-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      #track-producer {
         display: flex;
-        justify-content: space-between;
-        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
 
-        #track-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            #track-producer {
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-
-                img {
-                    height: 50px;
-                    width: 50px;
-                    border-radius: 50%;
-                    margin-right: 10px;
-                }
-            }
+        img {
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          margin-right: 10px;
         }
-
-        #track-player {
-            height: 70px;
-            width: 90%;
-            display: flex;
-            align-items: center;
-            margin: auto auto 5px auto;
-        }
+      }
     }
 
-    #track-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        height: 100%;
-        width: 5%;
-
-        button {
-            height: 50%;
-            width: 100%;
-            background-color: rgb(48, 48, 48);
-            border: 1px solid black;
-            color: white;
-        }
+    #track-player {
+      height: 70px;
+      width: 90%;
+      display: flex;
+      align-items: center;
+      margin: auto auto 5px auto;
     }
+  }
+
+  #track-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+    width: 5%;
+
+    .icons {
+      width: 23px;
+      height: 23px;
+    }
+
+    button {
+      height: 50%;
+      width: 100%;
+      background-color: rgb(48, 48, 48);
+      border: 1px solid black;
+      color: white;
+    }
+  }
 }
