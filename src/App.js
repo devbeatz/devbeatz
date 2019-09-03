@@ -7,6 +7,7 @@ import { HashRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import routes from "./components/routes";
 import LoginRegister from "./components/LoginRegister/LoginRegister";
+import UploadBeat from './components/UploadBeat/UploadBeat';
 import { toggleLoginModal } from "./redux/reducers/authReducer";
 
 function App(props) {
@@ -16,6 +17,9 @@ function App(props) {
         <LoginRegister
           show={props.loginModal}
           onHide={() => props.toggleLoginModal("")}
+        />
+        <UploadBeat
+          show={true}
         />
         {routes}
       </div>
