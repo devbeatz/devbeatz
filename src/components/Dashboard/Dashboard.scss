@@ -1,0 +1,90 @@
+#dashboard {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+    #user-dashboard {
+        width: calc(100% - 250px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-y: auto;
+        padding-top: 30px;
+
+        #dashboard-title {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 50px 0;
+
+            img {
+                height: 250px;
+                width: 250px;
+            }
+
+            #user-description {
+                width: 50%;
+            }
+        }
+
+        #producer-stats {
+            height: fit-content;
+            padding: 50px 0;
+            width: 100%;
+            background-color: lightgray;
+        }
+
+        #dashboard-main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            // padding-top: 50px;
+
+            #upload-section {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                padding: 50px 0;
+
+                #dashboard-upload {
+                    width: 30%;
+                    display: flex;
+                    justify-content: center;
+
+                    &>div {
+                        height: 200px;
+                        width: 200px;
+                        background-color: lightgray;
+                        margin-top: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+
+                #uploaded-beats {
+                    width: 70%;
+
+                    &>div {
+                        display: flex;
+                        width: 80%;
+                        justify-content: space-between;
+                        margin: auto;
+                    }
+                }
+            }
+
+            #purchased-beats {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: lightgray;
+                padding: 30px 0;
+
+            }
+
+        }
+    }
+}

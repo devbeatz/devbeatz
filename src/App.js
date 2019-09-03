@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Homepage from "./components/Homepage/Homepage";
+import Sidebar from "./components/Sidebar/Sidebar";
+import "./styles/global.scss";
+import { HashRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import routes from "./components/routes";
+import LoginRegister from "./components/LoginRegister/LoginRegister";
+import { toggleLoginModal } from "./redux/reducers/authReducer";
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <div className="App">
+        <LoginRegister
+          show={props.loginModal}
+          onHide={() => props.toggleLoginModal("")}
+        />
+        {routes}
+      </div>
+    </HashRouter>
   );
 }
 
-export default App;
+function mapStateToProps(reduxState) {
+  return {
+    loginModal: reduxState.auth.loginModal,
+    loggedIn: reduxState.auth.loggedIn
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { toggleLoginModal }
+)(App);
