@@ -5,6 +5,8 @@ const session = require('express-session');
 const auth = require('./controllers/authController');
 const tracks = require('./controllers/trackController');
 const purchases = require('./controllers/purchaseController');
+const sign_s3 = require('./controllers/awsController');
+
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
 
@@ -23,22 +25,26 @@ massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
     console.log('db connected');
 })
+
+
+app.use('/sign_s3', sign_s3.sign_s3);
+
 //auth
 app.post('/auth/register', auth.register);
 app.post('/auth/login', auth.login);
 app.get('/auth/logout', auth.logout);
 
 //track
-app.get('/tracks/getall', tracks.getall);
-app.get('/tracks/getuser', tracks.getUserTracks);
-app.post('/tracks/create', tracks.create);
-app.delete('/tracks/delete/:id', tracks.delete);
-app.put('/tracks/update/:id', tracks.update);
+app.get('/api/tracks/getall', tracks.getall);
+app.get('/api/tracks/getuser', tracks.getUserTracks);
+app.post('/api/tracks/create', tracks.create);
+app.delete('/api/tracks/delete/:id', tracks.delete);
+app.put('/api/tracks/update/:id', tracks.update);
 
 //purchase
-app.post('/purchases/make', purchases.make);
-app.get('/purchases/userSales', purchases.userSales);
-app.get('/purchases/userBought', purchases.userBought);
+app.post('/api/purchases/make', purchases.make);
+app.get('/api/purchases/userSales', purchases.userSales);
+app.get('/api/purchases/userBought', purchases.userBought);
 
 
 app.listen(SERVER_PORT, () => console.log(`listening on port: ${SERVER_PORT}`));

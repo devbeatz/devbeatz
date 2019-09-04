@@ -1,13 +1,17 @@
+const { AWSAccessKeyId, AWSSecretKey, Bucket } = process.env;
+const AWS = require('aws-sdk')
+
 module.exports = {
     getall: async (req, res) => {
         const tracks = await req.app.get('db').get_tracks();
         res.status(200).send(tracks)
     },
     create: async (req, res) => {
-        const { track_url, track_name, base_price, exclusive_price, genre } = req.body;
+        const { track_url, track_name, base_price, exclusive_price, genres } = req.body;
         const { user_id } = req.session.user;
-        const db = await req.app.get('db').create_track([user_id, track_url, track_name, base_price, exclusive_price, genre]);
-        res.sendStatus(200);
+        const db = req.app.get('db');
+        const userTracks = db.create_track([user_id, track_url, track_name, base_price, exclusive_price]);
+        res.status(200).send(userTracks);
     },
     update: async (req, res) => {
         const { field_name, field_value} = req.body;
