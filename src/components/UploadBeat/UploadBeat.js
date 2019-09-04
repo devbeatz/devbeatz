@@ -16,6 +16,7 @@ function UploadBeat(props){
     const [trackInfo, setTrackInfo ] = useState({});
 
     const onSubmit = () => {
+        props.addTrack(trackInfo);
     }
     
     const onFilesChange = (e) => {
