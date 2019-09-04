@@ -102,6 +102,7 @@ function LoginRegister(props) {
                 </p>
               )}
               {props.error && <p>{props.errorMessage}</p>}
+              <p />
               <button onClick={handleRegister}>Register</button>
             </div>
           )}
@@ -121,6 +122,7 @@ function LoginRegister(props) {
               />
               {error && <p>Please enter your email and password.</p>}
               {props.error && <p>{props.errorMessage}</p>}
+              <p />
               <button onClick={handleLogin}>Login</button>
             </div>
           )}
