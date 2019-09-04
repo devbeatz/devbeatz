@@ -3,23 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aws-s3": "^2.0.5",
+    "aws-sdk": "^2.521.0",
+    "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
+    "boostrap": "^2.0.0",
+    "bootstrap": "^4.3.1",
+    "clipp-player": "^1.0.6",
+    "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "massive": "^5.11.2",
-    "axios": "^0.19.0",
-    "bootstrap": "^4.3.1",
-    "clipp-player": "^1.0.6",
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "^16.9.0",
+    "react-files": "^2.4.8",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
     "redux": "^4.0.4",
-    "redux-promise-middleware": "^6.1.1"
+    "redux-promise-middleware": "^6.1.1",
+    "resolve-url-loader": "^3.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,5 +47,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:4001",
+  "main": "server/index.js"
 }
