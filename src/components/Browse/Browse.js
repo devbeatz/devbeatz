@@ -98,7 +98,7 @@ function Browse(props) {
             </span>{" "}
             This Week's Fuego Tracks
           </h2>
-          {sampleTop5.map(e => {
+          {sampleTop5.map((e, i) => {
             return (
               <Track
                 producerName={"someDude"}
