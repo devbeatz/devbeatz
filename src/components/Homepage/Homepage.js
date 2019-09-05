@@ -47,7 +47,7 @@ function Homepage(props) {
         {/* samples section */}
         <div id="homepage-samples-text">Samples</div>
         {/* <div id="samples-box"> */}
-        {/* <BeatCarousel /> */}
+        {/* <BeatCarousel top5={sampleTop5} /> */}
         <div id="samples">
           {props.top5[0] && (
             <Track

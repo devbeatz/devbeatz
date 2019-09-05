@@ -15,6 +15,9 @@ import RnBCover from "../../images/RnBCover.png";
 import SoulCover from "../../images/SoulCover.png";
 import TrapCover from "../../images/TrapCover.png";
 import UndergroundCover from "../../images/UndergroundCover.png";
+import headphones from "../../images/headphones.png";
+import fire from "../../images/fuego.png";
+import "./Browse.scss";
 
 function Browse(props) {
   return (
@@ -23,10 +26,7 @@ function Browse(props) {
       <div id="browse-beats">
         <div id="genre-cards">
           <h2>
-            <span role="img" aria-label="headphones">
-              🎧
-            </span>{" "}
-            Browse by Genre
+            <img src={headphones} alt="" id="browse-icon" /> Browse by Genre
           </h2>
           <div className="genre-card">
             <img src={AlternativeCover} alt="" className="albumCover"></img>
@@ -61,9 +61,7 @@ function Browse(props) {
         </div>
         <div id="browse-top5">
           <h2>
-            <span role="img" aria-label="fire">
-              🔥
-            </span>{" "}
+            <img src={fire} alt="" id="fuego-icon" />
             This Week's Fuego Tracks
           </h2>
           {props.top5.map((e, i) => {
