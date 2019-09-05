@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Homepage.scss";
 import { Link } from "react-router-dom";
 import djImage from "../../images/dj-sound-mixer.jpg";
@@ -7,8 +7,13 @@ import Footer from "../Footer/Footer";
 import { connect } from "react-redux";
 import { toggleLoginModal } from "../../redux/reducers/authReducer";
 import BeatCarousel from "../BeatCarousel/BeatCarousel";
+import Track from "../Track/Track";
 
 function Homepage(props) {
+  // useEffect(() => {
+  // props.
+  // },[])
+
   return (
     <div id="homepage">
       {/* everything on the homepage */}
@@ -43,11 +48,7 @@ function Homepage(props) {
         {/* <div id="samples-box"> */}
         {/* <BeatCarousel /> */}
         <div id="samples">
-          <SampleTrack coverImage={djImage} />
-          <SampleTrack coverImage={djImage} />
-          <SampleTrack coverImage={djImage} />
-          <SampleTrack coverImage={djImage} />
-          <SampleTrack coverImage={djImage} />
+          <Track />
           <Link to="/Browse">
             <button>Browse Beats</button>
           </Link>

@@ -46,15 +46,13 @@ function LoginRegister(props) {
         email,
         password
       };
-      props.loginUser(user).then(res => {
-        setRedirect(true);
-      });
+      props.loginUser(user);
     }
   };
 
   return (
     <>
-      {redirect && <Redirect to="/Browse" />}
+      {/* {redirect && <Redirect to="/Dashboard" />} */}
       <Modal
         {...props}
         size="md"

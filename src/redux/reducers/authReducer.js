@@ -3,7 +3,6 @@ import axios from "axios";
 const initialState = {
   username: "",
   email: "",
-  profilePic: "",
   loggedIn: false,
   loading: false,
   loginModal: false,
@@ -77,7 +76,6 @@ export default function reducer(state = initialState, action) {
         ...state,
         username: payload.username,
         email: payload.email,
-        profilePic: payload.profilePic,
         loggedIn: true,
         loading: false,
         error: false,
@@ -100,7 +98,7 @@ export default function reducer(state = initialState, action) {
         errorMessage: "Username or password is incorrect"
       };
     case `${REGISTER_USER}_FULFILLED`:
-      console.log("register fulfilled");
+      console.log(payload);
       return {
         ...state,
         username: payload.username,

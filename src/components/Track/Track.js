@@ -66,7 +66,7 @@ function Track(props) {
         {props.purchased ? (
           <a
             href="https://beatzz.s3.amazonaws.com/Cymatics+-+808+Mob+Ride+2"
-            download="bensound-allthat.mp3"
+            download
           >
             <button>DL</button>
           </a>
