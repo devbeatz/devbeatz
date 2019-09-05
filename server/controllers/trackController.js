@@ -42,16 +42,16 @@ module.exports = {
     },
     getUserTracks: async (req, res) => {
         const { user_id } = req.session.user;
+        console.log(req.session.user.user_id);
+        console.log(user_id);
         const db = req.app.get('db')
         const userTracks = await db.get_user_tracks([user_id]);
         const userBought = await db.get_userbought([user_id]);
         const userSoldTracks = await db.get_usersales([user_id]);
-        const userSalesData = await db.get_usersalesdata()
-
         res.status(200).send({
             User_Tracks: userTracks,
             User_Bought: userBought,
-            User_Sales: {...userSalesData, userSoldTracks}
+            User_Sales: userSoldTracks
         });
     },
     getTopFive: async (req, res) => {
