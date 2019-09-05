@@ -118,6 +118,7 @@ function Dashboard(props) {
               return (
                 <Track
                   key={i}
+                  purchased={true}
                   producerName={"someDude"}
                   trackTitle={"FireFlame"}
                   basePrice={"15.00"}
