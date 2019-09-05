@@ -23,7 +23,7 @@ function Track(props) {
         <div id="track-player">
           <ClippPlayer
             className={"clipp-player"}
-            src="https://beatzz.s3.amazonaws.com/bensound-allthat.mp3"
+            src="https://beatzz.s3.amazonaws.com/Cymatics+-+808+Mob+Ride+2"
             btnStyle={{
               marginTop: "-18px",
               height: "50px",
@@ -63,12 +63,21 @@ function Track(props) {
         </div>
       </div>
       <div id="track-buttons">
-        <button>
-          <img src={dollar} alt="" className="icons" />
-        </button>
-        <button>
+        {props.purchased ? (
+          <a
+            href="https://beatzz.s3.amazonaws.com/Cymatics+-+808+Mob+Ride+2"
+            download="bensound-allthat.mp3"
+          >
+            <button>DL</button>
+          </a>
+        ) : (
+          <button>
+            <img src={dollar} alt="" className="icons" />
+          </button>
+        )}
+        {/* <button>
           <img src={favoriteHeart} alt="" className="icons" />
-        </button>
+        </button> */}
       </div>
     </div>
   );
