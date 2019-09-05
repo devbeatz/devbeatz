@@ -18,6 +18,7 @@ function Sidebar(props) {
         </Link>
         <Link to="/Dashboard">
           <button>Dashboard</button>
+          {props.loggedIn ? <button>Logout</button> : <button>Login</button>}
         </Link>
       </div>
       <div id="sidebar-search">
@@ -25,8 +26,6 @@ function Sidebar(props) {
           <button>Browse All Beats</button>
         </Link>
         <div className="sidebar-titles">
-          <h3>Search</h3>
-          <input placeholder="search beatz" type="text" />
           <h3>Genres</h3>
         </div>
         <div id="genre-list">
@@ -41,15 +40,6 @@ function Sidebar(props) {
           <a href="/">Trap</a>
           <a href="/">Underground</a>
         </div>
-      </div>
-      <div id="sidebar-user-info">
-        <h3>User</h3>
-        <a href="/">Account Info</a>
-        {props.loggedIn && (
-          <a href="/" onClick={props.logoutUser}>
-            Logout
-          </a>
-        )}
       </div>
     </div>
   );
