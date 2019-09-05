@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import "./Browse.scss";
 import Sidebar from "../Sidebar/Sidebar";
 import Track from "../Track/Track";
 import BeatCarousel from "../BeatCarousel/BeatCarousel";
@@ -18,39 +20,6 @@ import fire from "../../images/fuego.png";
 import "./Browse.scss";
 
 function Browse(props) {
-  const sampleTop5 = [
-    {
-      producerName: "someDude",
-      trackTitle: "A Dope Beat",
-      basePrice: "15.00",
-      exclusivePrice: "100.00"
-    },
-    {
-      producerName: "someDude",
-      trackTitle: "A Dope Beat",
-      basePrice: "15.00",
-      exclusivePrice: "100.00"
-    },
-    {
-      producerName: "someDude",
-      trackTitle: "A Dope Beat",
-      basePrice: "15.00",
-      exclusivePrice: "100.00"
-    },
-    {
-      producerName: "someDude",
-      trackTitle: "A Dope Beat",
-      basePrice: "15.00",
-      exclusivePrice: "100.00"
-    },
-    {
-      producerName: "someDude",
-      trackTitle: "A Dope Beat",
-      basePrice: "15.00",
-      exclusivePrice: "100.00"
-    }
-  ];
-
   return (
     <div id="browse">
       <Sidebar />
@@ -95,14 +64,15 @@ function Browse(props) {
             <img src={fire} alt="" id="fuego-icon" />
             This Week's Fuego Tracks
           </h2>
-          {sampleTop5.map((e, i) => {
+          {props.top5.map((e, i) => {
             return (
               <Track
                 key={i}
-                producerName={"someDude"}
-                trackTitle={"FireFlame"}
-                basePrice={"15.00"}
-                exclusivePrice={"100.00"}
+                trackUrl={e.track_url}
+                trackTitle={e.track_name}
+                basePrice={e.base_price}
+                exclusivePrice={e.exclusive_price}
+                exclusive={e.exclusive}
               />
             );
           })}
@@ -114,4 +84,10 @@ function Browse(props) {
   );
 }
 
-export default Browse;
+function mapStateToProps(reduxState) {
+  return {
+    top5: reduxState.track.top5
+  };
+}
+
+export default connect(mapStateToProps)(Browse);

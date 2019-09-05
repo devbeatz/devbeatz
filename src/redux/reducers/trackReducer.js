@@ -26,10 +26,10 @@ export function getAllTracks() {
   };
 }
 
-export function getTop5Tracks() {
+export function getTopFiveTracks() {
   return {
     type: GET_TOP_5_TRACKS,
-    payload: axios.get("/api/tracks/top5").then(res => {
+    payload: axios.get("/api/tracks/topfive").then(res => {
       return res.data;
     })
   };
