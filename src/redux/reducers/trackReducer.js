@@ -4,7 +4,8 @@ const initialState = {
   tracks: [],
   tracksGenre: [],
   top5: [],
-  userTracks: [],
+  userBought: [],
+  userUploaded: [],
   loading: false
 };
 
@@ -43,7 +44,7 @@ export function getTracksByGenre(genre) {
   };
 }
 
-export function getTracksByUser(user) {
+export function getTracksByUser() {
   return {
     type: GET_TRACKS_BY_USER,
     payload: axios.get("/api/tracks/getuser").then(res => {
@@ -107,7 +108,7 @@ export default function reducer(state = initialState, action) {
     case `${GET_TRACKS_BY_GENRE}_FULFILLED`:
       return {
         ...state,
-        tracks: payload,
+        tracksGenre: payload,
         loading: false
       };
     case `${GET_TRACKS_BY_GENRE}_PENDING`:
@@ -115,12 +116,46 @@ export default function reducer(state = initialState, action) {
         ...state,
         loading: true
       };
+    case `${GET_TRACKS_BY_USER}_FULFILLED`:
+      return {
+        ...state,
+        userTracks: payload,
+        loading: false
+      };
+    case `${GET_TRACKS_BY_USER}_PENDING`:
+      return {
+        ...state,
+        loading: true
+      };
     case `${ADD_TRACK}_FULFILLED`:
       return {
         ...state,
+        userTracks: payload,
         loading: false
       };
     case `${ADD_TRACK}_PENDING`:
+      return {
+        ...state,
+        loading: true
+      };
+    case `${UPDATE_TRACK}_FULFILLED`:
+      return {
+        ...state,
+        userTracks: payload,
+        loading: false
+      };
+    case `${UPDATE_TRACK}_PENDING`:
+      return {
+        ...state,
+        loading: true
+      };
+    case `${DELETE_TRACK}_FULFILLED`:
+      return {
+        ...state,
+        userTracks: payload,
+        loading: false
+      };
+    case `${DELETE_TRACK}_PENDING`:
       return {
         ...state,
         loading: true
