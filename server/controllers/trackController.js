@@ -45,17 +45,24 @@ module.exports = {
         const db = req.app.get('db')
         const userTracks = await db.get_user_tracks([user_id]);
         const userBought = await db.get_userbought([user_id]);
-        const userSales = await db.get_usersales([user_id]);
+        const userSoldTracks = await db.get_usersales([user_id]);
+        const userSalesData = await db.get_usersalesdata()
+
         res.status(200).send({
             User_Tracks: userTracks,
             User_Bought: userBought,
-            User_Sales: userSales
+            User_Sales: {...userSalesData, userSoldTracks}
         });
     },
-    getUserBought: async (req, res) => {
-
-    },
-    getUserSold: async (req, res) => {
-
+    getTopFive: async (req, res) => {
+        const db = req.app.get('db');
+        console.log('hit')
+        const topPurchased = await db.get_topfiveID();
+        const ids = topPurchased.map(val => {
+            return val.track_id;
+        })
+        const topFiveTracks = await db.get_topfivetracks([ids[0], ids[1], ids[2], ids[3], ids[4],])
+        console.log(ids)
+        res.status(200).send(topFiveTracks)
     }
 }
