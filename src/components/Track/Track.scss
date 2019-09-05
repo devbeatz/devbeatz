@@ -3,19 +3,27 @@
 #track {
   width: 85%;
   height: 120px;
-  background-color: black;
-  color: white;
+  background-image: url("../../images/dashboardHeaderBG.jpg");
+  color: #e91e63;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 20px;
-  border-radius: 30px;
-  font-family: "Work Sans", sans-serif;
-  font-size: 0.75em;
+  border-radius: 0px;
+  font-family: "Work Sans", cursive;
+  font-size: 0.7em;
+
+  h2 {
+    font-size: 2.1em;
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid #e91e63;
+    // text-shadow: 2px 2px #e91e63;
+  }
 
   h3 {
     font-family: "Work Sans", sans-serif;
-    font-size: 1.4em;
+    font-size: 1.35em;
   }
 
   #track-player-div {
@@ -50,27 +58,34 @@
       display: flex;
       align-items: center;
       margin: auto auto 5px auto;
+
+      .styles_clippPlayer__14S42 .styles_button__1v679:hover {
+        background: deepskyblue !important;
+      }
     }
   }
 
   #track-buttons {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 5%;
+    margin-left: 10px;
 
-    .icons {
-      width: 23px;
-      height: 23px;
+    #dollar-button {
+      box-shadow: none;
+      border: none;
+      width: 0px;
+      transition: none;
+      background-color: none;
+      padding: 0px;
     }
 
-    button {
-      height: 50%;
-      width: 100%;
-      background-color: rgb(48, 48, 48);
-      border: 1px solid black;
-      color: white;
+    .download-icon {
+      width: 30px;
+      width: 30px;
     }
   }
 }

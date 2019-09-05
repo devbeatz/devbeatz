@@ -2,7 +2,7 @@ import React from "react";
 import "./Track.scss";
 import ClippPlayer from "clipp-player";
 import sampleImage from "../../images/dj-sound-mixer.jpg";
-import favoriteHeart from "../../images/favoriteHeart.png";
+import download from "../../images/downloadButton.png";
 import dollar from "../../images/USdollar.png";
 
 function Track(props) {
@@ -11,7 +11,6 @@ function Track(props) {
       <div id="track-player-div">
         <div id="track-info">
           <div id="track-producer">
-            <img src={sampleImage} alt="producer" />
             <h3>{props.producerName}</h3>
           </div>
           <h2>{props.trackTitle}</h2>
@@ -32,13 +31,13 @@ function Track(props) {
               justifyContent: "center",
               alignItems: "center",
               color: "white",
-              background: "hotpink",
+              background: "transparent",
               borderRadius: "50%"
             }}
             counterStyle={{
               marginTop: "-17px",
               fontSize: "30px",
-              color: "hotpink"
+              color: "transparent"
             }}
             volume={1}
             zoom={1}
@@ -48,14 +47,14 @@ function Track(props) {
               barGap: 1,
               barHeight: 7,
               barWidth: 2,
-              cursorColor: "teal",
+              cursorColor: "white",
               cursorWidth: 1,
               fillParent: true,
               height: 60,
               hideScrollbar: true,
               normalize: true,
               partialRender: true,
-              progressColor: "hotpink",
+              progressColor: "deepskyblue",
               responsive: true,
               waveColor: "white"
             }}
@@ -68,11 +67,11 @@ function Track(props) {
             href="https://beatzz.s3.amazonaws.com/Cymatics+-+808+Mob+Ride+2"
             download="bensound-allthat.mp3"
           >
-            <button>DL</button>
+            <img src={download} alt="" className="download-icon" />
           </a>
         ) : (
-          <button>
-            <img src={dollar} alt="" className="icons" />
+          <button id="dollar-button">
+            <img src={dollar} alt="" className="download-icon" />
           </button>
         )}
         {/* <button>
