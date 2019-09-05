@@ -105,6 +105,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         username: payload.username,
         email: payload.email,
+        loggedIn: true,
         loading: false,
         error: false,
         loginModal: false

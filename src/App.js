@@ -18,9 +18,7 @@ function App(props) {
           show={props.loginModal}
           onHide={() => props.toggleLoginModal("")}
         />
-        {/* <UploadBeat
-          show={true}
-        /> */}
+        {/* <UploadBeat show={true} /> */}
         {routes}
       </div>
     </HashRouter>

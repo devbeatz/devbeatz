@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import btzLogo from "../../images/btzLogo.png";
 import "./Sidebar.scss";
 import { connect } from "react-redux";
-import { logoutUser } from "../../redux/reducers/authReducer";
+import { logoutUser, toggleLoginModal } from "../../redux/reducers/authReducer";
 
 function Sidebar(props) {
+  console.log(props.loggedIn);
   return (
     <div id="sidebar">
       <div id="logo-div">
@@ -18,14 +19,17 @@ function Sidebar(props) {
         <Link to="/Dashboard">
           <button>Dashboard</button>
         </Link>
+        {props.loggedIn ? (
+          <button onClick={props.logoutUser}>Logout</button>
+        ) : (
+          <button onClick={() => props.toggleLoginModal("login")}>Login</button>
+        )}
       </div>
       <div id="sidebar-search">
         <Link to="/Browse">
           <button>Browse All Beats</button>
         </Link>
         <div className="sidebar-titles">
-          <h3>Search</h3>
-          <input placeholder="search beatz" type="text" />
           <h3>Genres</h3>
         </div>
         <div id="genre-list">
@@ -41,15 +45,6 @@ function Sidebar(props) {
           <a href="/">Underground</a>
         </div>
       </div>
-      <div id="sidebar-user-info">
-        <h3>User</h3>
-        <a href="/">Account Info</a>
-        {props.loggedIn && (
-          <a href="/" onClick={props.logoutUser}>
-            Logout
-          </a>
-        )}
-      </div>
     </div>
   );
 }
@@ -62,5 +57,5 @@ function mapStateToProps(reduxState) {
 
 export default connect(
   mapStateToProps,
-  { logoutUser }
+  { logoutUser, toggleLoginModal }
 )(Sidebar);
