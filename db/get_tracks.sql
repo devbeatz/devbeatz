@@ -1,1 +1,2 @@
-SELECT * FROM tracks;
+SELECT * FROM tracks
+WHERE exclusive = false;

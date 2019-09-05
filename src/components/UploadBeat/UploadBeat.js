@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { Modal } from 'react-bootstrap';
 import { addTrack } from '../../redux/reducers/trackReducer';
 import Files from 'react-files';
-import {keyid, secretkey } from "../s3-keys";
 import S3 from 'aws-s3';
 
 function UploadBeat(props){
