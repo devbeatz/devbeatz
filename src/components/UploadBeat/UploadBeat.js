@@ -32,7 +32,8 @@ function UploadBeat(props) {
         const url = returnData.url;
         const options = {
           headers: {
-            "Content-Type": fileType
+            "Content-Type": fileType,
+            "Content-Disposition": `attachment; filename='${fileName}.${fileType}`
           }
         };
         axios.put(signedRequest, file, options).then(res => {

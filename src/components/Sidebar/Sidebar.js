@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import btzLogo from "../../images/btzLogo.png";
 import "./Sidebar.scss";
 import { connect } from "react-redux";
-import { logoutUser } from "../../redux/reducers/authReducer";
+import { logoutUser, toggleLoginModal } from "../../redux/reducers/authReducer";
 
 function Sidebar(props) {
   console.log(props.loggedIn);
@@ -18,8 +18,12 @@ function Sidebar(props) {
         </Link>
         <Link to="/Dashboard">
           <button>Dashboard</button>
-          {props.loggedIn ? <button>Logout</button> : <button>Login</button>}
         </Link>
+        {props.loggedIn ? (
+          <button onClick={props.logoutUser}>Logout</button>
+        ) : (
+          <button onClick={() => props.toggleLoginModal("login")}>Login</button>
+        )}
       </div>
       <div id="sidebar-search">
         <Link to="/Browse">
@@ -53,5 +57,5 @@ function mapStateToProps(reduxState) {
 
 export default connect(
   mapStateToProps,
-  { logoutUser }
+  { logoutUser, toggleLoginModal }
 )(Sidebar);
