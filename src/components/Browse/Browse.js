@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import "./Browse.scss";
 import Sidebar from "../Sidebar/Sidebar";
 import Track from "../Track/Track";
-import BeatCarousel from "../BeatCarousel/BeatCarousel";
 import Footer from "../Footer/Footer";
 import AlternativeCover from "../../images/AlternativeCover.png";
 import BluesCover from "../../images/BluesCover.png";
@@ -20,6 +19,20 @@ import fire from "../../images/fuego.png";
 import "./Browse.scss";
 
 function Browse(props) {
+  const [genre, setGenre] = useState("");
+  const genresArray = [
+    AlternativeCover,
+    BluesCover,
+    FreestyleCover,
+    HipHopCover,
+    OldSchoolCover,
+    PopCover,
+    RnBCover,
+    SoulCover,
+    TrapCover,
+    UndergroundCover
+  ];
+
   return (
     <div id="browse">
       <Sidebar />
@@ -28,8 +41,39 @@ function Browse(props) {
           <h2>
             <img src={headphones} alt="" id="browse-icon" /> Browse by Genre
           </h2>
-          <div className="genre-card">
-            <img src={AlternativeCover} alt="" className="albumCover"></img>
+          {genre
+            ? genresArray
+                .filter(e => e === genre)
+                .map((e, i) => {
+                  return (
+                    <div
+                      key={i}
+                      style={{
+                        position: "absolute",
+                        top: "136px",
+                        left: "218px"
+                      }}
+                      onClick={() => setGenre("")}
+                      className="genre-card"
+                    >
+                      <img src={e} alt={e}></img>
+                      <h1>{e}</h1>
+                    </div>
+                  );
+                })
+            : genresArray.map((e, i) => {
+                return (
+                  <div
+                    key={i}
+                    onClick={() => setGenre(`${e}`)}
+                    className="genre-card"
+                  >
+                    <img src={e} alt={e}></img>
+                  </div>
+                );
+              })}
+          {/* <div className="genre-card">
+            <img src={AlternativeCover} alt=""></img>
           </div>
           <div className="genre-card">
             <img src={BluesCover} alt="" />
@@ -57,7 +101,7 @@ function Browse(props) {
           </div>
           <div className="genre-card">
             <img src={UndergroundCover} alt="" />
-          </div>
+          </div> */}
         </div>
         <div id="browse-top5">
           <h2>

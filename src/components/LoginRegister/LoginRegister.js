@@ -31,9 +31,7 @@ function LoginRegister(props) {
         email,
         password
       };
-      props.registerUser(user).then(res => {
-        setRedirect(true);
-      });
+      props.registerUser(user);
     }
   };
 
