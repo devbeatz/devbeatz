@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../redux/reducers/authReducer";
 
 function Sidebar(props) {
+  console.log(props.loggedIn);
   return (
     <div id="sidebar">
       <div id="logo-div">
