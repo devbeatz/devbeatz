@@ -14,7 +14,7 @@ function Dashboard(props) {
   useEffect(() => {
     props.getTracksByUser();
   }, []);
-
+  console.log(props.userTracks);
   const sampleBeats = [
     {
       producerName: "someDude",
@@ -119,6 +119,9 @@ function Dashboard(props) {
                   purchased={true}
                   producerName={"someDude"}
                   trackTitle={"FireFlame"}
+                  trackUrl={
+                    "https://beatzz.s3.amazonaws.com/bensound-groovyhiphop.mp3"
+                  }
                   basePrice={"15.00"}
                   exclusivePrice={"100.00"}
                 />

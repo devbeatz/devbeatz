@@ -6,14 +6,15 @@ import SampleTrack from "../SampleTrack/SampleTrack";
 import Footer from "../Footer/Footer";
 import { connect } from "react-redux";
 import { toggleLoginModal } from "../../redux/reducers/authReducer";
+import { getTopFiveTracks } from "../../redux/reducers/trackReducer";
 import BeatCarousel from "../BeatCarousel/BeatCarousel";
 import Track from "../Track/Track";
 
 function Homepage(props) {
-  // useEffect(() => {
-  // props.
-  // },[])
-
+  useEffect(() => {
+    props.getTopFiveTracks();
+  }, []);
+  console.log(props.top5);
   return (
     <div id="homepage">
       {/* everything on the homepage */}
@@ -48,7 +49,15 @@ function Homepage(props) {
         {/* <div id="samples-box"> */}
         {/* <BeatCarousel /> */}
         <div id="samples">
-          <Track />
+          {props.top5[0] && (
+            <Track
+              trackUrl={props.top5[0].track_url}
+              basePrice={props.top5[0].base_price}
+              exclusivePrice={props.top5[0].exclusive_price}
+              trackTitle={props.top5[0].track_name}
+              exclusive={props.top5[0].exclusive}
+            />
+          )}
           <Link to="/Browse">
             <button>Browse Beats</button>
           </Link>
@@ -117,11 +126,12 @@ function Homepage(props) {
 
 function mapStateToProps(reduxState) {
   return {
-    // loggedIn: reduxState.auth.loggedIn
+    loggedIn: reduxState.auth.loggedIn,
+    top5: reduxState.track.top5
   };
 }
 
 export default connect(
   mapStateToProps,
-  { toggleLoginModal }
+  { toggleLoginModal, getTopFiveTracks }
 )(Homepage);
