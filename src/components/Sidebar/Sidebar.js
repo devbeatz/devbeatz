@@ -17,7 +17,7 @@ function Sidebar(props) {
           <h1>Beatz</h1>
         </Link>
         <Link to="/Dashboard">
-          <button>Dashboard</button>
+          <button id="dashboard-button">Dashboard</button>
         </Link>
         {props.loggedIn ? (
           <button onClick={props.logoutUser}>Logout</button>
