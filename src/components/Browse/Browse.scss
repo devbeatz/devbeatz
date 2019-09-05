@@ -13,16 +13,18 @@
   background-size: fill;
 
   #browse-beats {
-    width: calc(100% - 250px);
+    width: calc(100% - 210px);
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     overflow-y: auto;
+    overflow-x: hidden;
 
     #genre-cards {
       width: 100%;
+      height: 100vh;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
@@ -33,16 +35,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: lightblue;
-        color: white;
-        font-size: 30px;
         margin: 20px 0;
       }
     }
 
     #browse-top5 {
       width: 100%;
-      //   background-color: lightgray;
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -62,4 +60,16 @@
     text-align: left;
     font-size: 1.5em;
   }
+}
+
+#browse-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+#fuego-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
 }

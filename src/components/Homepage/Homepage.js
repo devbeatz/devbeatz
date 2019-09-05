@@ -9,6 +9,38 @@ import { toggleLoginModal } from "../../redux/reducers/authReducer";
 import BeatCarousel from "../BeatCarousel/BeatCarousel";
 
 function Homepage(props) {
+  const sampleTop5 = [
+    {
+      producerName: "someDude",
+      trackTitle: "A Dope Beat",
+      basePrice: "15.00",
+      exclusivePrice: "100.00"
+    },
+    {
+      producerName: "someDude",
+      trackTitle: "A Dope Beat",
+      basePrice: "15.00",
+      exclusivePrice: "100.00"
+    },
+    {
+      producerName: "someDude",
+      trackTitle: "A Dope Beat",
+      basePrice: "15.00",
+      exclusivePrice: "100.00"
+    },
+    {
+      producerName: "someDude",
+      trackTitle: "A Dope Beat",
+      basePrice: "15.00",
+      exclusivePrice: "100.00"
+    },
+    {
+      producerName: "someDude",
+      trackTitle: "A Dope Beat",
+      basePrice: "15.00",
+      exclusivePrice: "100.00"
+    }
+  ];
   return (
     <div id="homepage">
       {/* everything on the homepage */}
@@ -41,7 +73,7 @@ function Homepage(props) {
         {/* samples section */}
         <div id="homepage-samples-text">Samples</div>
         {/* <div id="samples-box"> */}
-        {/* <BeatCarousel /> */}
+        {/* <BeatCarousel top5={sampleTop5} /> */}
         <div id="samples">
           <SampleTrack coverImage={djImage} />
           <SampleTrack coverImage={djImage} />
