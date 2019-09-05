@@ -37,6 +37,7 @@ app.get('/auth/logout', auth.logout);
 //track
 app.get('/api/tracks/getall', tracks.getall);
 app.get('/api/tracks/getuser', tracks.getUserTracks);
+app.get('/api/tracks/topfive', tracks.getTopFive);
 app.post('/api/tracks/create', tracks.create);
 app.delete('/api/tracks/delete/:id', tracks.delete);
 app.put('/api/tracks/update/:id', tracks.update);
