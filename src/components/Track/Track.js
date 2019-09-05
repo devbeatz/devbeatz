@@ -23,7 +23,7 @@ function Track(props) {
         <div id="track-player">
           <ClippPlayer
             className={"clipp-player"}
-            src="https://beatzz.s3.amazonaws.com/Cymatics+-+808+Mob+Ride+2"
+            src={props.trackUrl}
             btnStyle={{
               marginTop: "-18px",
               height: "50px",
@@ -64,10 +64,7 @@ function Track(props) {
       </div>
       <div id="track-buttons">
         {props.purchased ? (
-          <a
-            href="https://beatzz.s3.amazonaws.com/Cymatics+-+808+Mob+Ride+2"
-            download="bensound-allthat.mp3"
-          >
+          <a href={props.trackUrl} download>
             <button>DL</button>
           </a>
         ) : (
