@@ -37,7 +37,7 @@ function Track(props) {
             counterStyle={{
               marginTop: "-17px",
               fontSize: "30px",
-              color: "transparent"
+              color: "white"
             }}
             volume={1}
             zoom={1}
