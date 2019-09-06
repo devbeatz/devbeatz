@@ -14,11 +14,13 @@
   font-size: 0.7em;
 
   h2 {
-    font-size: 2.1em;
+    font-size: 2.1em !important;
     color: white;
     font-weight: bold;
     border-bottom: 2px solid #e91e63;
-    // text-shadow: 2px 2px #e91e63;
+    width: fit-content !important;
+    margin: 0 !important;
+    margin-bottom: 13px !important;
   }
 
   h3 {
