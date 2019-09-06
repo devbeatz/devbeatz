@@ -46,11 +46,6 @@
         height: 250px;
         width: 250px;
       }
-
-      #user-description {
-        width: 50%;
-        text-align: left;
-      }
     }
 
     #producer-stats {
@@ -167,5 +162,17 @@
   #cloud-upload-icon {
     width: 200px;
     height: 200px;
+  }
+}
+
+#user-description {
+  width: 75%;
+  text-align: left !important;
+
+  h3 {
+    font-size: 0.9em !important;
+    display: flex;
+    justify-content: flex-end !important;
+    letter-spacing: 0.1em !important;
   }
 }
