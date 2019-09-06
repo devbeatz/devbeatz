@@ -16,7 +16,7 @@ function Track(props) {
           <h2>{props.trackTitle}</h2>
 
           <h3>
-            ${props.basePrice} / ${props.exclusivePrice}
+            {props.basePrice} / {props.exclusivePrice}
           </h3>
         </div>
         <div id="track-player">
