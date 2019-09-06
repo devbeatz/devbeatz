@@ -19,7 +19,7 @@ function LoginRegister(props) {
   const [error, setError] = useState(false);
   const [redirect, setRedirect] = useState(false);
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     setError(false);
     if (!username || !email || !password || !confirmPassword) {
       setError(true);
@@ -31,11 +31,14 @@ function LoginRegister(props) {
         email,
         password
       };
-      props.registerUser(user);
+      await props.registerUser(user);
+      if (props.redirect) {
+        setRedirect(true);
+      }
     }
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     setError(false);
     if (!email || !password) {
       setError(true);
@@ -44,13 +47,16 @@ function LoginRegister(props) {
         email,
         password
       };
-      props.loginUser(user);
+      await props.loginUser(user);
+      if (props.redirect) {
+        setRedirect(true);
+      }
     }
   };
 
   return (
     <>
-      {/* {redirect && <Redirect to="/Dashboard" />} */}
+      {redirect && <Redirect to="/Dashboard" />}
       <Modal
         {...props}
         size="md"

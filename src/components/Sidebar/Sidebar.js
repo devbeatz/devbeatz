@@ -1,4 +1,5 @@
 import React from "react";
+import LoginRegister from "../LoginRegister/LoginRegister";
 import { Link } from "react-router-dom";
 import btzLogo from "../../images/btzLogo.png";
 import "./Sidebar.scss";
@@ -9,6 +10,10 @@ function Sidebar(props) {
   console.log(props.loggedIn);
   return (
     <div id="sidebar">
+      <LoginRegister
+        show={props.loginModal}
+        onHide={() => props.toggleLoginModal("")}
+      />
       <div id="logo-div">
         <div id="logo">
           <img src={btzLogo} alt="" />
@@ -22,9 +27,11 @@ function Sidebar(props) {
           <button id="dashboard-button">Dashboard</button>
         </Link>
         {props.loggedIn ? (
-          <button onClick={props.logoutUser} id="dashboard-button">
-            Logout
-          </button>
+          <Link to="/">
+            <button onClick={props.logoutUser} id="dashboard-button">
+              Logout
+            </button>
+          </Link>
         ) : (
           <button
             onClick={() => props.toggleLoginModal("login")}
@@ -60,7 +67,9 @@ function Sidebar(props) {
 
 function mapStateToProps(reduxState) {
   return {
-    loggedIn: reduxState.auth.loggedIn
+    loggedIn: reduxState.auth.loggedIn,
+    loginModal: reduxState.auth.loginModal,
+    loginRegister: reduxState.auth.loginRegister
   };
 }
 
