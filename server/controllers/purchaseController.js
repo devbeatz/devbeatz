@@ -7,10 +7,11 @@ module.exports = {
         res.sendStatus(200);
     },
     userSales: async (req, res) => {
+        console.log(req.session.user.user_id);
         const { user_id } = req.session.user;
         const db = req.app.get('db');
-        const userPurchases = await db.get_usersales([user_id])
-        res.status(200).send(userPurchases);
+        const userSales = await db.get_usersales([user_id])
+        res.status(200).send(userSales);
     },
     userBought: async (req, res) => {
         const { user_id } = req.session.user;
