@@ -78,13 +78,15 @@
           justify-content: center;
 
           & > div {
-            height: 200px;
-            width: 200px;
+            // height: 200px;
+            // width: 200px;
             // background-color: lightgray;
-            margin-top: 20px;
+            // margin-top: 20px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            margin-top: -50px;
           }
         }
 
@@ -160,5 +162,10 @@
   }
   h3 {
     font-weight: 800;
+  }
+
+  #cloud-upload-icon {
+    width: 200px;
+    height: 200px;
   }
 }

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import {
+  getTracksByGenre,
+  getAllTracks,
+  getTopFiveTracks
+} from "../../redux/reducers/trackReducer";
 import "./Browse.scss";
 import Sidebar from "../Sidebar/Sidebar";
 import Track from "../Track/Track";
-import BeatCarousel from "../BeatCarousel/BeatCarousel";
 import Footer from "../Footer/Footer";
 import AlternativeCover from "../../images/AlternativeCover.png";
 import BluesCover from "../../images/BluesCover.png";
@@ -20,6 +24,51 @@ import fire from "../../images/fuego.png";
 import "./Browse.scss";
 
 function Browse(props) {
+  const [genre, setGenre] = useState("");
+  const [genreString, setGenreString] = useState("");
+  const [tracks, setTracks] = useState([]);
+  const genresArray = [
+    AlternativeCover,
+    BluesCover,
+    FreestyleCover,
+    HipHopCover,
+    OldSchoolCover,
+    PopCover,
+    RnBCover,
+    SoulCover,
+    TrapCover,
+    UndergroundCover
+  ];
+  const genresStringsArray = [
+    "Alternative",
+    "Blues",
+    "Freestyle",
+    "HipHop",
+    "OldSchool",
+    "Pop",
+    "RnB",
+    "Soul",
+    "Trap",
+    "Underground"
+  ];
+
+  useEffect(() => {
+    props.getAllTracks();
+    props.getTopFiveTracks();
+  }, []);
+
+  const getTracksByGenre = async (genre, i) => {
+    setGenre(genre);
+    setGenreString(genresStringsArray[i]);
+    await props.getTracksByGenre(genresStringsArray[i]);
+    setTracks(props.tracksGenre);
+  };
+
+  const getAllTracks = () => {
+    setGenre("");
+    setTracks(props.tracks);
+  };
+
   return (
     <div id="browse">
       <Sidebar />
@@ -28,36 +77,36 @@ function Browse(props) {
           <h2>
             <img src={headphones} alt="" id="browse-icon" /> Browse by Genre
           </h2>
-          <div className="genre-card">
-            <img src={AlternativeCover} alt="" className="albumCover"></img>
-          </div>
-          <div className="genre-card">
-            <img src={BluesCover} alt="" />
-          </div>
-          <div className="genre-card">
-            <img src={FreestyleCover} alt="" />
-          </div>
-          <div className="genre-card">
-            <img src={HipHopCover} alt="" />
-          </div>
-          <div className="genre-card">
-            <img src={OldSchoolCover} alt="" />
-          </div>
-          <div className="genre-card">
-            <img src={PopCover} alt="" />
-          </div>
-          <div className="genre-card">
-            <img src={RnBCover} alt="" />
-          </div>
-          <div className="genre-card">
-            <img src={SoulCover} alt="" />
-          </div>
-          <div className="genre-card">
-            <img src={TrapCover} alt="" />
-          </div>
-          <div className="genre-card">
-            <img src={UndergroundCover} alt="" />
-          </div>
+          {genre
+            ? genresArray
+                .filter(e => e === genre)
+                .map((e, i) => {
+                  return (
+                    <div
+                      key={i}
+                      style={{
+                        width: "50%",
+                        justifyContent: "space-between"
+                      }}
+                      onClick={getAllTracks}
+                      className="genre-card"
+                    >
+                      <img src={e} alt={e}></img>
+                      <h1>{genreString} Tracks</h1>
+                    </div>
+                  );
+                })
+            : genresArray.map((e, i) => {
+                return (
+                  <div
+                    key={i}
+                    onClick={() => getTracksByGenre(e, i)}
+                    className="genre-card"
+                  >
+                    <img src={e} alt={e}></img>
+                  </div>
+                );
+              })}
         </div>
         <div id="browse-top5">
           <h2>
@@ -70,6 +119,7 @@ function Browse(props) {
                 key={i}
                 trackUrl={e.track_url}
                 trackTitle={e.track_name}
+                producerName={e.username}
                 basePrice={e.base_price}
                 exclusivePrice={e.exclusive_price}
                 exclusive={e.exclusive}
@@ -77,7 +127,37 @@ function Browse(props) {
             );
           })}
         </div>
-        <div id="browse-all-tracks"></div>
+        <div id="browse-all-tracks">
+          {genre ? <h1>{genreString} Tracks</h1> : <h1>All Tracks</h1>}
+          {genre
+            ? props.tracksGenre.map((e, i) => {
+                return (
+                  <Track
+                    key={i}
+                    producerName={e.username}
+                    trackUrl={e.track_url}
+                    trackTitle={e.track_name}
+                    basePrice={e.base_price}
+                    exclusivePrice={e.exclusive_price}
+                    exclusive={e.exclusive}
+                  />
+                );
+              })
+            : props.tracks &&
+              props.tracks.map((e, i) => {
+                return (
+                  <Track
+                    key={i}
+                    producerName={e.username}
+                    trackUrl={e.track_url}
+                    trackTitle={e.track_name}
+                    basePrice={e.base_price}
+                    exclusivePrice={e.exclusive_price}
+                    exclusive={e.exclusive}
+                  />
+                );
+              })}
+        </div>
         <Footer />
       </div>
     </div>
@@ -86,8 +166,13 @@ function Browse(props) {
 
 function mapStateToProps(reduxState) {
   return {
-    top5: reduxState.track.top5
+    top5: reduxState.track.top5,
+    tracks: reduxState.track.tracks,
+    tracksGenre: reduxState.track.tracksGenre
   };
 }
 
-export default connect(mapStateToProps)(Browse);
+export default connect(
+  mapStateToProps,
+  { getTracksByGenre, getAllTracks, getTopFiveTracks }
+)(Browse);

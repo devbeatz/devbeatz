@@ -5,7 +5,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import Track from "../Track/Track";
 import Footer from "../Footer/Footer";
 import djDashboard from "../../images/djDashboard.png";
-import uploadIcon from "../../images/uploadIcon.png";
+import uploadIcon from "../../images/uploadIcon.svg";
 import audioWave from "../../images/audioWave.png";
 import musicLibrary from "../../images/musicLibrary.png";
 import "./Dashboard.scss";
@@ -70,13 +70,17 @@ function Dashboard(props) {
           <h1>
             <img src={djDashboard} alt="" id="dj-icon" /> Your Dashboard
           </h1>
+          <div>
+            <h3>{props.username}</h3>
+            <h3>{props.email}</h3>
+          </div>
         </div>
-        <div id="dashboard-title">
+        {/* <div id="dashboard-title">
           <div id="user-description">
             <h4 className="emphasis">{props.username}</h4>
             <h5 className="emphasis">{props.email}</h5>
           </div>
-        </div>
+        </div> */}
         <div id="producer-stats">
           <h1>PLACEHOLDER FOR PRODUCER STATS</h1>
         </div>
@@ -89,7 +93,8 @@ function Dashboard(props) {
           <div id="upload-section">
             <div id="dashboard-upload">
               <div>
-                <img src={uploadIcon} alt="" />
+                <img src={uploadIcon} alt="" id="cloud-upload-icon" />
+                Upload New Beat
               </div>
             </div>
             <div id="uploaded-beats">

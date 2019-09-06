@@ -14,10 +14,10 @@ function App(props) {
   return (
     <HashRouter>
       <div className="App">
-        <LoginRegister
+        {/* <LoginRegister
           show={props.loginModal}
           onHide={() => props.toggleLoginModal("")}
-        />
+        /> */}
         {/* <UploadBeat show={true} /> */}
         {routes}
       </div>
