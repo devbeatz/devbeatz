@@ -9,14 +9,21 @@ import { toggleLoginModal } from "../../redux/reducers/authReducer";
 import { getTopFiveTracks } from "../../redux/reducers/trackReducer";
 import BeatCarousel from "../BeatCarousel/BeatCarousel";
 import Track from "../Track/Track";
+import LoginRegister from "../LoginRegister/LoginRegister";
 
 function Homepage(props) {
   useEffect(() => {
     props.getTopFiveTracks();
   }, []);
-  console.log(props.top5);
+  console.log(props.history);
+
   return (
     <div id="homepage">
+      <LoginRegister
+        redirect={true}
+        show={props.loginModal}
+        onHide={() => props.toggleLoginModal("")}
+      />
       {/* everything on the homepage */}
       <div id="homepage-header">
         {/* the main 'hero' image with logo and register/login buttons */}
@@ -53,6 +60,7 @@ function Homepage(props) {
             <Track
               trackUrl={props.top5[0].track_url}
               basePrice={props.top5[0].base_price}
+              producerName={props.top5[0].username}
               exclusivePrice={props.top5[0].exclusive_price}
               trackTitle={props.top5[0].track_name}
               exclusive={props.top5[0].exclusive}
@@ -127,7 +135,9 @@ function Homepage(props) {
 function mapStateToProps(reduxState) {
   return {
     loggedIn: reduxState.auth.loggedIn,
-    top5: reduxState.track.top5
+    top5: reduxState.track.top5,
+    loginModal: reduxState.auth.loginModal,
+    loginRegister: reduxState.auth.loginRegister
   };
 }
 

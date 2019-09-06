@@ -13,6 +13,9 @@ import "./Dashboard.scss";
 function Dashboard(props) {
   useEffect(() => {
     props.getTracksByUser();
+    // return () => {
+    //   this.context.router.push("/");
+    // };
   }, []);
   console.log(props.userTracks);
   const sampleBeats = [
