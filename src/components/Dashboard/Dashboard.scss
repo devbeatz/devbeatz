@@ -10,6 +10,7 @@
     rgba(180, 61, 101, 1) 5%,
     rgba(28, 0, 4, 1) 100%
   );
+  position: absolute;
   background-size: fill;
   font-family: "Work Sans", sans-serif;
   color: white;
@@ -23,6 +24,10 @@
     justify-content: flex-start;
     overflow-y: auto;
     // padding-top: 30px;
+
+    #footer {
+      margin-top: auto;
+    }
 
     #dashboard-header {
       // background: black;
