@@ -6,13 +6,19 @@ const auth = require("./controllers/authController");
 const tracks = require("./controllers/trackController");
 const purchases = require("./controllers/purchaseController");
 const sign_s3 = require("./controllers/awsController");
-const stripe = require('stripe')(Secret);
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 
-const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
+const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, Secret} = process.env;
+const stripe = require('stripe')(Secret);
 
 const app = express();
+
+app.engine('handlerbars', exphbs({defaultlayout:'main'}));
+app.set('view engine', 'handlebars');
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
 
 app.use(express.json());
 app.use(
@@ -29,8 +35,6 @@ massive(CONNECTION_STRING).then(db => {
   app.set("db", db);
   console.log("db connected");
 });
-
-
 
 app.use("/sign_s3", sign_s3.sign_s3);
 
@@ -49,7 +53,6 @@ app.put("/api/tracks/update/:id", tracks.update);
 
 //purchase
 app.post("/api/purchases/make", purchases.make);
-app.post('/api/purchases/charge', purchases.createCharge);
 app.get("/api/purchases/userSales", purchases.userSales);
 app.get("/api/purchases/userBought", purchases.userBought);
 
