@@ -5,9 +5,11 @@
   height: 100vh;
   width: 100vw;
   background: rgb(180, 61, 101);
-  background: linear-gradient(308deg,
-      rgba(180, 61, 101, 1) 5%,
-      rgba(28, 0, 4, 1) 100%);
+  background: linear-gradient(
+    308deg,
+    rgba(180, 61, 101, 1) 5%,
+    rgba(28, 0, 4, 1) 100%
+  );
   background-size: fill;
 
   #browse-beats {
@@ -26,7 +28,6 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-
 
       .genre-card {
         width: 17%;
@@ -75,8 +76,22 @@
   margin-bottom: 10px;
 }
 
-#fuego-icon {
+#all-tracks-title {
+  font-family: "Work Sans", sans-serif;
+  color: white;
+}
+
+.fuego-icon {
   width: 50px;
   height: 50px;
   margin-bottom: 15px;
+  animation: pulse 1.5s infinite 0s linear;
+}
+
+@keyframes pulse {
+  0% {
+  }
+  50% {
+    transform: scale(1.3);
+  }
 }

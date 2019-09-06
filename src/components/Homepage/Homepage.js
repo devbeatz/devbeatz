@@ -7,6 +7,7 @@ import Footer from "../Footer/Footer";
 import { connect } from "react-redux";
 import { toggleLoginModal } from "../../redux/reducers/authReducer";
 import { getTopFiveTracks } from "../../redux/reducers/trackReducer";
+import Sidebar from "../Sidebar/Sidebar";
 import BeatCarousel from "../BeatCarousel/BeatCarousel";
 import Track from "../Track/Track";
 import LoginRegister from "../LoginRegister/LoginRegister";
@@ -54,7 +55,7 @@ function Homepage(props) {
         {/* samples section */}
         <div id="homepage-samples-text">Samples</div>
         {/* <div id="samples-box"> */}
-        {/* <BeatCarousel top5={sampleTop5} /> */}
+        {/* <BeatCarousel top5={props.sampleTop5} /> */}
         <div id="samples">
           {props.top5[0] && (
             <Track

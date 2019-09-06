@@ -77,9 +77,11 @@ function Dashboard(props) {
           <h1>
             <img src={djDashboard} alt="" id="dj-icon" /> Your Dashboard
           </h1>
-          <div>
-            <h3>{props.username}</h3>
-            <h3>{props.email}</h3>
+          <div id="user-description">
+            <h3>
+              {props.username} <span className="emphasis"> / </span>{" "}
+              {props.email}
+            </h3>
           </div>
         </div>
         {/* <div id="dashboard-title">
