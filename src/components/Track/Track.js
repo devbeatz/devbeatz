@@ -16,7 +16,7 @@ function Track(props) {
           <h2>{props.trackTitle}</h2>
 
           <h3>
-            ${props.basePrice} / ${props.exclusivePrice}
+            {props.basePrice} / {props.exclusivePrice}
           </h3>
         </div>
         <div id="track-player">
@@ -37,7 +37,7 @@ function Track(props) {
             counterStyle={{
               marginTop: "-17px",
               fontSize: "30px",
-              color: "transparent"
+              color: "white"
             }}
             volume={1}
             zoom={1}
