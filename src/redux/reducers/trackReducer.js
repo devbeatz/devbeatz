@@ -6,6 +6,7 @@ const initialState = {
   top5: [],
   userBought: [],
   userUploaded: [],
+  userSales: [],
   loading: false
 };
 
@@ -119,7 +120,9 @@ export default function reducer(state = initialState, action) {
     case `${GET_TRACKS_BY_USER}_FULFILLED`:
       return {
         ...state,
-        userTracks: payload,
+        userBought: payload.User_Bought,
+        userUploaded: payload.User_Tracks,
+        userSales: payload.User_Sales,
         loading: false
       };
     case `${GET_TRACKS_BY_USER}_PENDING`:
@@ -128,9 +131,10 @@ export default function reducer(state = initialState, action) {
         loading: true
       };
     case `${ADD_TRACK}_FULFILLED`:
+      console.log(payload);
       return {
         ...state,
-        userTracks: payload,
+        userUploaded: payload,
         loading: false
       };
     case `${ADD_TRACK}_PENDING`:
