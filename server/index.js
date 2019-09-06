@@ -6,8 +6,11 @@ const auth = require("./controllers/authController");
 const tracks = require("./controllers/trackController");
 const purchases = require("./controllers/purchaseController");
 const sign_s3 = require("./controllers/awsController");
+const stripe = require('stripe')(Secret);
+const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
 
-const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
+const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 
 const app = express();
 
@@ -27,6 +30,8 @@ massive(CONNECTION_STRING).then(db => {
   console.log("db connected");
 });
 
+
+
 app.use("/sign_s3", sign_s3.sign_s3);
 
 //auth
@@ -44,6 +49,7 @@ app.put("/api/tracks/update/:id", tracks.update);
 
 //purchase
 app.post("/api/purchases/make", purchases.make);
+app.post('/api/purchases/charge', purchases.createCharge);
 app.get("/api/purchases/userSales", purchases.userSales);
 app.get("/api/purchases/userBought", purchases.userBought);
 
