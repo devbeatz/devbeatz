@@ -105,11 +105,13 @@ function Dashboard(props) {
               </div>
             </div>
             <div id="uploaded-beats">
-              {props.userSales.map((e, i) => {
+              {props.userUploaded.map((e, i) => {
                 let excl =
                   e.exclusive_price
                     .split("")
                     .slice(1, e.exclusive_price.length)
+                    .join("")
+                    .split(",")
                     .join("") * 1;
                 let base =
                   e.base_price
@@ -120,13 +122,13 @@ function Dashboard(props) {
                 return (
                   <div key={i}>
                     <p>{e.track_name}</p>
-                    <p>uploaded on {"sometime"}</p>
-                    <p>sold {e.soldcount} times</p>
+                    <p>uploaded on {e.upload_date.split("T")[0]}</p>
+                    <p>sold {e.sell_count} times</p>
                     <p>
                       profits: $
                       {e.exclusive
-                        ? excl + base * (e.soldcount - 1)
-                        : base * e.soldcount}
+                        ? excl + base * (e.sell_count - 1)
+                        : base * e.sell_count}
                     </p>
                   </div>
                 );
