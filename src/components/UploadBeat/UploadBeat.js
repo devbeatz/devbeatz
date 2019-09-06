@@ -14,6 +14,7 @@ function UploadBeat(props) {
 
   const onSubmit = () => {
     props.addTrack(trackInfo);
+    props.onHide();
   };
 
   const onFilesChange = e => {
@@ -61,7 +62,7 @@ function UploadBeat(props) {
       centered
       autofocus
     >
-      <Modal.Header closebutton>
+      <Modal.Header closeButton>
         <Modal.Title>
           <div>New</div>
           <h1>BEATZ</h1>
@@ -151,15 +152,11 @@ function UploadBeat(props) {
             name="Underground"
           />
           <label for="Underground">Underground</label>
-          <input
-            onChange={e => setGenre([...genre, e.target.name])}
-            type="file"
-            onChange={onFilesChange}
-          />
+          <input type="file" onChange={onFilesChange} />
         </form>
       </Modal.Body>
       <Modal.Footer>
-        <button>Submit</button>
+        <button onClick={onSubmit}>Submit</button>
       </Modal.Footer>
     </Modal>
   );
