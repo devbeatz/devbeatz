@@ -25,9 +25,11 @@ function Sidebar(props) {
           <button id="dashboard-button">Dashboard</button>
         </Link>
         {props.loggedIn ? (
-          <button onClick={props.logoutUser} id="dashboard-button">
-            Logout
-          </button>
+          <Link to="/">
+            <button onClick={props.logoutUser} id="dashboard-button">
+              Logout
+            </button>
+          </Link>
         ) : (
           <button
             onClick={() => props.toggleLoginModal("login")}

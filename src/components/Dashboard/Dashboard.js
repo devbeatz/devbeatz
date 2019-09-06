@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getTracksByUser } from "../../redux/reducers/trackReducer";
 import Sidebar from "../Sidebar/Sidebar";
@@ -9,12 +9,18 @@ import uploadIcon from "../../images/uploadIcon.svg";
 import audioWave from "../../images/audioWave.png";
 import musicLibrary from "../../images/musicLibrary.png";
 import "./Dashboard.scss";
+import UploadBeat from "../UploadBeat/UploadBeat";
 
 function Dashboard(props) {
+  const [upload, setUpload] = useState(false);
+  const { loggedIn, getTracksByUser, history, userUploaded } = props;
   useEffect(() => {
-    props.getTracksByUser();
-  }, []);
-  console.log(props.userTracks);
+    if (loggedIn) {
+      getTracksByUser();
+    } else {
+      history.push("/");
+    }
+  }, [loggedIn, getTracksByUser, history]);
   const sampleBeats = [
     {
       producerName: "someDude",
@@ -65,6 +71,7 @@ function Dashboard(props) {
   return (
     <div id="dashboard">
       <Sidebar />
+      <UploadBeat show={upload} onHide={() => setUpload(false)} />
       <div id="user-dashboard">
         <div id="dashboard-header">
           <h1>
@@ -92,19 +99,37 @@ function Dashboard(props) {
           </div>
           <div id="upload-section">
             <div id="dashboard-upload">
-              <div>
+              <div onClick={() => setUpload(true)}>
                 <img src={uploadIcon} alt="" id="cloud-upload-icon" />
                 Upload New Beat
               </div>
             </div>
             <div id="uploaded-beats">
-              {sampleBeats.map((e, i) => {
+              {props.userUploaded.map((e, i) => {
+                let excl =
+                  e.exclusive_price
+                    .split("")
+                    .slice(1, e.exclusive_price.length)
+                    .join("")
+                    .split(",")
+                    .join("") * 1;
+                let base =
+                  e.base_price
+                    .split("")
+                    .slice(1, e.base_price.length)
+                    .join("") * 1;
+                console.log(excl, base, base + excl);
                 return (
                   <div key={i}>
-                    <p>{e.trackTitle}</p>
-                    <p>uploaded on {e.uploadDate}</p>
-                    <p>sold {e.soldCount} times</p>
-                    <p>profits: {e.profit}</p>
+                    <p>{e.track_name}</p>
+                    <p>uploaded on {e.upload_date.split("T")[0]}</p>
+                    <p>sold {e.sell_count} times</p>
+                    <p>
+                      profits: $
+                      {e.exclusive
+                        ? excl + base * (e.sell_count - 1)
+                        : base * e.sell_count}
+                    </p>
                   </div>
                 );
               })}
@@ -117,18 +142,16 @@ function Dashboard(props) {
                 Beats
               </h3>
             </div>
-            {sampleBeats.map((e, i) => {
+            {props.userBought.map((e, i) => {
               return (
                 <Track
                   key={i}
                   purchased={true}
-                  producerName={"someDude"}
-                  trackTitle={"FireFlame"}
-                  trackUrl={
-                    "https://beatzz.s3.amazonaws.com/bensound-groovyhiphop.mp3"
-                  }
-                  basePrice={"15.00"}
-                  exclusivePrice={"100.00"}
+                  producerName={e.username}
+                  trackTitle={e.track_name}
+                  trackUrl={e.track_url}
+                  basePrice={e.base_price}
+                  exclusivePrice={e.exclusive_price}
                 />
               );
             })}
@@ -142,7 +165,10 @@ function Dashboard(props) {
 
 function mapStateToProps(reduxState) {
   return {
-    userTracks: reduxState.track.userTracks,
+    loggedIn: reduxState.auth.loggedIn,
+    userBought: reduxState.track.userBought,
+    userUploaded: reduxState.track.userUploaded,
+    userSales: reduxState.track.userSales,
     username: reduxState.auth.username,
     email: reduxState.auth.email
   };
