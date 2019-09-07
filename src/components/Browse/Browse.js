@@ -21,6 +21,7 @@ import TrapCover from "../../images/TrapCover.png";
 import UndergroundCover from "../../images/UndergroundCover.png";
 import headphones from "../../images/headphones.png";
 import fire from "../../images/fuego.png";
+import allTracksLogo from "../../images/allTracksLogo.svg";
 import "./Browse.scss";
 
 function Browse(props) {
@@ -110,7 +111,7 @@ function Browse(props) {
         </div>
         <div id="browse-top5">
           <h2>
-            <img src={fire} alt="" id="fuego-icon" />
+            <img src={fire} alt="" className="fuego-icon" />
             This Week's Fuego Tracks
           </h2>
           {props.top5.map((e, i) => {
@@ -128,7 +129,13 @@ function Browse(props) {
           })}
         </div>
         <div id="browse-all-tracks">
-          {genre ? <h1>{genreString} Tracks</h1> : <h1>All Tracks</h1>}
+          {genre ? (
+            <h1>{genreString} Tracks</h1>
+          ) : (
+            <h2>
+              <img src={allTracksLogo} alt="" id="browse-icon" /> All Tracks
+            </h2>
+          )}
           {genre
             ? props.tracksGenre.map((e, i) => {
                 return (

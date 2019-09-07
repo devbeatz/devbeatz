@@ -5,24 +5,29 @@
   height: 100vh;
   display: flex;
   background: rgb(180, 61, 101);
-  background: linear-gradient(
-    308deg,
-    rgba(180, 61, 101, 1) 5%,
-    rgba(28, 0, 4, 1) 100%
-  );
+  background: linear-gradient(308deg,
+      rgba(180, 61, 101, 1) 5%,
+      rgba(28, 0, 4, 1) 100%);
+  position: absolute;
   background-size: fill;
   font-family: "Work Sans", sans-serif;
   color: white;
 
   #user-dashboard {
-    width: calc(100% - 250px);
+    width: calc(100% - 210px);
+    height: 100%;
     display: flex;
     flex-direction: column;
     // align-items: baseline;
     align-content: center;
     justify-content: flex-start;
     overflow-y: auto;
+
     // padding-top: 30px;
+
+    #footer {
+      margin-top: auto;
+    }
 
     #dashboard-header {
       // background: black;
@@ -45,11 +50,6 @@
       img {
         height: 250px;
         width: 250px;
-      }
-
-      #user-description {
-        width: 50%;
-        text-align: left;
       }
     }
 
@@ -77,7 +77,7 @@
           display: flex;
           justify-content: center;
 
-          & > div {
+          &>div {
             // height: 200px;
             // width: 200px;
             // background-color: lightgray;
@@ -93,7 +93,7 @@
         #uploaded-beats {
           width: 70%;
 
-          & > div {
+          &>div {
             display: flex;
             width: 80%;
             justify-content: space-between;
@@ -160,6 +160,7 @@
   h1 {
     font-weight: 800;
   }
+
   h3 {
     font-weight: 800;
   }
@@ -167,5 +168,17 @@
   #cloud-upload-icon {
     width: 200px;
     height: 200px;
+  }
+}
+
+#user-description {
+  width: 75%;
+  text-align: left !important;
+
+  h3 {
+    font-size: 0.9em !important;
+    display: flex;
+    justify-content: flex-end !important;
+    letter-spacing: 0.1em !important;
   }
 }

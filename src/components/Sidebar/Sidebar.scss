@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #1c0004;
-  color: lightgray;
+  // color: lightgray;
 
   #logo-div {
     display: flex;
@@ -52,6 +52,19 @@
 
 #dashboard-button {
   margin-bottom: 10px;
+}
+
+#dashboard-buttons-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  // padding-bottom: 75px;
+}
+
+#sidebar-search {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 190px;
 }
 
 // #sidebar-user-info {
