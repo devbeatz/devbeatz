@@ -160,7 +160,7 @@ export default function reducer(state = initialState, action) {
     case `${UPDATE_TRACK}_FULFILLED`:
       return {
         ...state,
-        userTracks: payload,
+        userUploaded: payload.User_Tracks,
         loading: false
       };
     case `${UPDATE_TRACK}_PENDING`:
@@ -171,7 +171,7 @@ export default function reducer(state = initialState, action) {
     case `${DELETE_TRACK}_FULFILLED`:
       return {
         ...state,
-        userTracks: payload,
+        userUploaded: payload.User_Tracks,
         loading: false
       };
     case `${DELETE_TRACK}_PENDING`:

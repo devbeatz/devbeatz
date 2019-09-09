@@ -53,7 +53,7 @@ function Homepage(props) {
       </div>
       <div id="homepage-samples">
         {/* samples section */}
-        <div id="homepage-samples-text">Samples</div>
+        <div id="homepage-samples-text">Featured Beat</div>
         {/* <div id="samples-box"> */}
         {/* <BeatCarousel top5={props.sampleTop5} /> */}
         <div id="samples">
