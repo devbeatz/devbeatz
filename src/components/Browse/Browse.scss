@@ -45,6 +45,7 @@
       justify-content: space-around;
       align-items: center;
       flex-direction: column;
+      margin-top: 35px;
     }
 
     #browse-all-tracks {
@@ -84,7 +85,7 @@
 .fuego-icon {
   width: 50px;
   height: 50px;
-  margin-bottom: 15px;
+  margin-top: -25px;
   animation: pulse 1.5s infinite 0s linear;
 }
 
