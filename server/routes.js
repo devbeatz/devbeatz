@@ -15,7 +15,7 @@ const charge = (token, amount) => {
     })
 }
 
-router.post('/api/purchase', async (req, res, next ) => {
+router.post('/api/buy', async (req, res, next ) => {
     try{
         let data = await charge(req.body.token.id, req.body.amount)
         console.log(data)

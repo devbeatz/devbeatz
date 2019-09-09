@@ -29,6 +29,7 @@ module.exports = {
     update: async (req, res) => {
         const { track_name, exclusive_price, base_price} = req.body;
         const { id } = req.params;
+        const { user_id } = req.session.user;
         const db = req.app.get('db');
         db.tracks.update({track_id: id}, 
             {[track_name]: track_name, 
@@ -43,6 +44,7 @@ module.exports = {
         })
     },
     delete: async (req, res) => {
+        const { user_id } = req.session.user;
         const { id } = req.params;
         const db = req.app.get('db')
         const newTrackfeed = await db.delete_track([id]);
