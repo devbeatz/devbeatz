@@ -8,7 +8,7 @@ const purchases = require("./controllers/purchaseController");
 const sign_s3 = require("./controllers/awsController");
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-
+const router = require('./routes');
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, Secret} = process.env;
 const stripe = require('stripe')(Secret);
 
@@ -55,5 +55,6 @@ app.put("/api/tracks/update/:id", tracks.update);
 app.post("/api/purchases/make", purchases.make);
 app.get("/api/purchases/userSales", purchases.userSales);
 app.get("/api/purchases/userBought", purchases.userBought);
+app.use(router);
 
 app.listen(SERVER_PORT, () => console.log(`listening on port: ${SERVER_PORT}`));

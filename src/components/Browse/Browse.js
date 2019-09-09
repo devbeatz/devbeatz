@@ -23,6 +23,7 @@ import headphones from "../../images/headphones.png";
 import fire from "../../images/fuego.png";
 import allTracksLogo from "../../images/allTracksLogo.svg";
 import "./Browse.scss";
+import PurchaseBeat from '../PurchaseBeat/PurchaseBeat';
 
 function Browse(props) {
   const [genre, setGenre] = useState("");
@@ -44,8 +45,8 @@ function Browse(props) {
     "Alternative",
     "Blues",
     "Freestyle",
-    "HipHop",
-    "OldSchool",
+    "Hip-Hop",
+    "Old School",
     "Pop",
     "RnB",
     "Soul",
@@ -59,6 +60,7 @@ function Browse(props) {
   }, []);
 
   const getTracksByGenre = async (genre, i) => {
+    genre = genre.split(' ').join('%20');
     setGenre(genre);
     setGenreString(genresStringsArray[i]);
     await props.getTracksByGenre(genresStringsArray[i]);
@@ -80,18 +82,18 @@ function Browse(props) {
           </h2>
           {genre
             ? genresArray
-                .filter(e => e === genre)
-                .map((e, i) => {
-                  return (
-                    <div
-                      key={i}
-                      style={{
-                        width: "50%",
-                        justifyContent: "space-between"
-                      }}
-                      onClick={getAllTracks}
-                      className="genre-card"
-                    >
+            .filter(e => e === genre)
+            .map((e, i) => {
+              return (
+                <div
+                key={i}
+                style={{
+                  width: "50%",
+                  justifyContent: "space-between"
+                }}
+                onClick={getAllTracks}
+                className="genre-card"
+                >
                       <img src={e} alt={e}></img>
                       <h1>{genreString} Tracks</h1>
                     </div>
@@ -118,6 +120,7 @@ function Browse(props) {
             return (
               <Track
                 key={i}
+                track_id={e.track_id}
                 trackUrl={e.track_url}
                 trackTitle={e.track_name}
                 producerName={e.username}
@@ -141,6 +144,7 @@ function Browse(props) {
                 return (
                   <Track
                     key={i}
+                    track_id={e.track_id}
                     producerName={e.username}
                     trackUrl={e.track_url}
                     trackTitle={e.track_name}
