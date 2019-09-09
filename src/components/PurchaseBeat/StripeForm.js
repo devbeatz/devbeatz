@@ -8,23 +8,23 @@ function StripeForm(props){
     const [ exclusive, toggleExclusive ] = useState(false)
 
     const submitHandler = async () => {
-        console.log('submit hit')
         try{
-            console.log('try hit')
+            let amount = Number(Amount.slice(1))
             let { token } = await props.stripe.createToken({name: username})
             await fetch('/api/buy',{
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify({token, Amount})
+                body: JSON.stringify({token, amount})
             })
-            console.log(token)
         }catch (e){
             throw e;
             console.log(e)
         }
-     //   axios.post('/api/purchases/make', { track_id, exclusive })
+        const { track_id } = props;
+        console.log(track_id);
+        axios.post('/api/purchases/make', { track_id, exclusive })
     }
 
     return(
