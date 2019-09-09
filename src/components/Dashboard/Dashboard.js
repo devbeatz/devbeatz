@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getTracksByUser } from "../../redux/reducers/trackReducer";
+import {
+  getTracksByUser,
+  updateTrack,
+  deleteTrack
+} from "../../redux/reducers/trackReducer";
 import Sidebar from "../Sidebar/Sidebar";
 import Track from "../Track/Track";
 import Footer from "../Footer/Footer";
@@ -10,10 +15,18 @@ import audioWave from "../../images/audioWave.png";
 import musicLibrary from "../../images/musicLibrary.png";
 import "./Dashboard.scss";
 import UploadBeat from "../UploadBeat/UploadBeat";
+import EditTrackModal from "../EditTrackModal/EditTrackModal";
+import DeleteTrackModal from "../DeleteTrackModal/DeleteTrackModal";
 
 function Dashboard(props) {
   const [upload, setUpload] = useState(false);
-  const { loggedIn, getTracksByUser, history, userUploaded } = props;
+  const [trackInfo, setTrackInfo] = useState({});
+  const [editModal, setEditModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [deleteId, setDeleteId] = useState("");
+
+  const { loggedIn, getTracksByUser, history } = props;
+
   useEffect(() => {
     if (loggedIn) {
       getTracksByUser();
@@ -21,57 +34,38 @@ function Dashboard(props) {
       history.push("/");
     }
   }, [loggedIn, getTracksByUser, history]);
-  const sampleBeats = [
-    {
-      producerName: "someDude",
-      trackTitle: "A Dope Beat",
-      basePrice: "15.00",
-      exclusivePrice: "100.00",
-      uploadDate: "01-10-2019",
-      soldCount: 4,
-      profit: "230.00"
-    },
-    {
-      producerName: "someDude",
-      trackTitle: "A Dope Beat",
-      basePrice: "15.00",
-      exclusivePrice: "100.00",
-      uploadDate: "01-10-2019",
-      soldCount: 4,
-      profit: "230.00"
-    },
-    {
-      producerName: "someDude",
-      trackTitle: "A Dope Beat",
-      basePrice: "15.00",
-      exclusivePrice: "100.00",
-      uploadDate: "01-10-2019",
-      soldCount: 4,
-      profit: "230.00"
-    },
-    {
-      producerName: "someDude",
-      trackTitle: "A Dope Beat",
-      basePrice: "15.00",
-      exclusivePrice: "100.00",
-      uploadDate: "01-10-2019",
-      soldCount: 4,
-      profit: "230.00"
-    },
-    {
-      producerName: "someDude",
-      trackTitle: "A Dope Beat",
-      basePrice: "15.00",
-      exclusivePrice: "100.00",
-      uploadDate: "01-10-2019",
-      soldCount: 4,
-      profit: "230.00"
-    }
-  ];
+
+  const handleEditTrack = track => {
+    setTrackInfo(track);
+    setEditModal(true);
+  };
+
+  const handleDeleteTrack = id => {
+    setDeleteId(id);
+    setDeleteModal(true);
+  };
+
   return (
     <div id="dashboard">
       <Sidebar />
       <UploadBeat show={upload} onHide={() => setUpload(false)} />
+      {trackInfo.track_name && (
+        <EditTrackModal
+          show={editModal}
+          onHide={() => {
+            setTrackInfo({});
+            setEditModal(false);
+          }}
+          trackInfo={trackInfo}
+        />
+      )}
+      {deleteId && (
+        <DeleteTrackModal
+          show={deleteModal}
+          onHide={() => setDeleteModal(false)}
+          deleteId={deleteId}
+        />
+      )}
       <div id="user-dashboard">
         <div id="dashboard-header">
           <h1>
@@ -84,12 +78,6 @@ function Dashboard(props) {
             </h3>
           </div>
         </div>
-        {/* <div id="dashboard-title">
-          <div id="user-description">
-            <h4 className="emphasis">{props.username}</h4>
-            <h5 className="emphasis">{props.email}</h5>
-          </div>
-        </div> */}
         <div id="producer-stats">
           <h1>PLACEHOLDER FOR PRODUCER STATS</h1>
         </div>
@@ -107,34 +95,44 @@ function Dashboard(props) {
               </div>
             </div>
             <div id="uploaded-beats">
-              {props.userUploaded.map((e, i) => {
-                let excl =
-                  e.exclusive_price
-                    .split("")
-                    .slice(1, e.exclusive_price.length)
-                    .join("")
-                    .split(",")
-                    .join("") * 1;
-                let base =
-                  e.base_price
-                    .split("")
-                    .slice(1, e.base_price.length)
-                    .join("") * 1;
-                console.log(excl, base, base + excl);
-                return (
-                  <div key={i}>
-                    <p>{e.track_name}</p>
-                    <p>uploaded on {e.upload_date.split("T")[0]}</p>
-                    <p>sold {e.sell_count} times</p>
-                    <p>
-                      profits: $
-                      {e.exclusive
-                        ? excl + base * (e.sell_count - 1)
-                        : base * e.sell_count}
-                    </p>
-                  </div>
-                );
-              })}
+              {props.userUploaded[0] ? (
+                props.userUploaded.map((e, i) => {
+                  let excl =
+                    e.exclusive_price
+                      .split("")
+                      .slice(1, e.exclusive_price.length)
+                      .join("")
+                      .split(",")
+                      .join("") * 1;
+                  let base =
+                    e.base_price
+                      .split("")
+                      .slice(1, e.base_price.length)
+                      .join("") * 1;
+                  return (
+                    <div key={i}>
+                      <p>{e.track_name}</p>
+                      <p>uploaded on {e.upload_date.split("T")[0]}</p>
+                      <p>sold {e.sell_count} times</p>
+                      <p>
+                        profits: $
+                        {e.exclusive
+                          ? excl + base * (e.sell_count - 1)
+                          : base * e.sell_count}
+                      </p>
+                      <button onClick={() => handleEditTrack(e)}>Edit</button>
+                      <button onClick={() => handleDeleteTrack(e.track_id)}>
+                        Delete
+                      </button>
+                    </div>
+                  );
+                })
+              ) : (
+                <h3>
+                  You haven't uploaded any beats yet. When you do they will show
+                  up here!
+                </h3>
+              )}
             </div>
           </div>
           <div id="purchased-beats">
@@ -144,19 +142,26 @@ function Dashboard(props) {
                 Beats
               </h3>
             </div>
-            {props.userBought.map((e, i) => {
-              return (
-                <Track
-                  key={i}
-                  purchased={true}
-                  producerName={e.username}
-                  trackTitle={e.track_name}
-                  trackUrl={e.track_url}
-                  basePrice={e.base_price}
-                  exclusivePrice={e.exclusive_price}
-                />
-              );
-            })}
+            {props.userBought[0] ? (
+              props.userBought.map((e, i) => {
+                return (
+                  <Track
+                    key={i}
+                    purchased={true}
+                    producerName={e.username}
+                    trackTitle={e.track_name}
+                    trackUrl={e.track_url}
+                    basePrice={e.base_price}
+                    exclusivePrice={e.exclusive_price}
+                  />
+                );
+              })
+            ) : (
+              <h2>
+                Go to <Link to="/Browse">Browse</Link> to purchase your first
+                beat!
+              </h2>
+            )}
           </div>
         </div>
         <Footer />
