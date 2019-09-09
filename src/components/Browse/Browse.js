@@ -124,7 +124,7 @@ function Browse(props) {
                 src={genresArray[genreIndex]}
                 alt={genresStringsArray[genreIndex]}
               ></img>
-              <h1>{genresStringsArray[genreIndex]} Tracks</h1>
+              {/* <h1>{genresStringsArray[genreIndex]} Tracks</h1> */}
               <button onClick={getAllTracks}>All Tracks</button>
             </div>
           ) : (
@@ -141,30 +141,30 @@ function Browse(props) {
             })
           )}
         </div>
-        <div id="browse-top5">
-          <h2>
-            <img src={fire} alt="" className="fuego-icon" />
-            This Week's Fuego Tracks
-          </h2>
-          {props.top5.map((e, i) => {
-            return (
-              <Track
-                key={i}
-                track_id={e.track_id}
-                trackUrl={e.track_url}
-                trackTitle={e.track_name}
-                producerName={e.username}
-                basePrice={e.base_price}
-                exclusivePrice={e.exclusive_price}
-                exclusive={e.exclusive}
-              />
-            );
-          })}
-        </div>
+        {!props.genre && (
+          <div id="browse-top5">
+            <h2>
+              <img src={fire} alt="" className="fuego-icon" />
+              This Week's Fuego Tracks
+            </h2>
+            {props.top5.map((e, i) => {
+              return (
+                <Track
+                  key={i}
+                  track_id={e.track_id}
+                  trackUrl={e.track_url}
+                  trackTitle={e.track_name}
+                  producerName={e.username}
+                  basePrice={e.base_price}
+                  exclusivePrice={e.exclusive_price}
+                  exclusive={e.exclusive}
+                />
+              );
+            })}
+          </div>
+        )}
         <div id="browse-all-tracks">
-          {props.genre ? (
-            <h1>{genresStringsArray[genreIndex]} Tracks</h1>
-          ) : (
+          {!props.genre && (
             <h2>
               <img src={allTracksLogo} alt="" id="browse-icon" /> All Tracks
             </h2>
