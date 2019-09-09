@@ -6,9 +6,9 @@ module.exports = {
         const db = req.app.get('db')
         const tracks = await db.get_tracks();
         if(req.query.genre){
-            console.log(req.query.genre)
             const tracksByGenre = await db.get_by_genre([req.query.genre])
             return res.status(200).json(tracksByGenre)
+            console.log(tracksByGenre)
         }
         return res.status(200).send(tracks);
     },
@@ -27,18 +27,29 @@ module.exports = {
         res.status(200).send(userTracks);
     },
     update: async (req, res) => {
-        const { field_name, field_value} = req.body;
+        const { track_name, exclusive_price, base_price} = req.body;
         const { id } = req.params;
         const db = req.app.get('db');
-        db.tracks.update({track_id: id}, {[field_name]: field_value}).then(response => {
-            res.status(200).send(response);
+        db.tracks.update({track_id: id}, 
+            {[track_name]: track_name, 
+            [base_price]: base_price, 
+            [exclusive_price]: exclusive_price})
+            .then(response => {
+                console.log(response)
+        })
+        const userTracks = await db.get_user_tracks([user_id]);
+        res.status(200).send({
+            User_Tracks: userTracks
         })
     },
     delete: async (req, res) => {
         const { id } = req.params;
         const db = req.app.get('db')
-        const newTrackfeed = db.delete_track([id]);
-        res.status(200).json(newTrackfeed);
+        const newTrackfeed = await db.delete_track([id]);
+        const userTracks = await db.get_user_tracks([user_id]);
+        res.status(200).send({
+            User_Tracks: userTracks
+        })
     },
     getUserTracks: async (req, res) => {
         const { user_id } = req.session.user;
@@ -63,6 +74,7 @@ module.exports = {
         })
         const topFiveTracks = await db.get_topfivetracks([ids[0], ids[1], ids[2], ids[3], ids[4],])
         console.log(ids)
+        console.log(topFiveTracks)
         res.status(200).send(topFiveTracks)
     }
 }

@@ -24,6 +24,7 @@ import headphones from "../../images/headphones.png";
 import fire from "../../images/fuego.png";
 import allTracksLogo from "../../images/allTracksLogo.svg";
 import "./Browse.scss";
+import PurchaseBeat from "../PurchaseBeat/PurchaseBeat";
 import { Pagination } from "react-bootstrap";
 
 function Browse(props) {
@@ -149,6 +150,7 @@ function Browse(props) {
             return (
               <Track
                 key={i}
+                track_id={e.track_id}
                 trackUrl={e.track_url}
                 trackTitle={e.track_name}
                 producerName={e.username}
