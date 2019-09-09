@@ -121,7 +121,7 @@ function UploadBeat(props) {
             type="checkbox"
             name="Old School"
           />
-          <label for="Old School">Old School</label>
+          <label for="Old-School">Old School</label>
           <input
             onChange={e => setGenre([...genre, e.target.name])}
             type="checkbox"
@@ -131,9 +131,9 @@ function UploadBeat(props) {
           <input
             onChange={e => setGenre([...genre, e.target.name])}
             type="checkbox"
-            name="R&B"
+            name="RnB"
           />
-          <label for="R&B">R&B</label>
+          <label for="RnB">RnB</label>
           <input
             onChange={e => setGenre([...genre, e.target.name])}
             type="checkbox"
