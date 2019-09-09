@@ -2,7 +2,11 @@ module.exports = {
     make: async (req, res) => {
         const { user_id } = req.session.user;
         const { track_id, exclusive } = req.body;
-        const db = await req.app.get('db').record_purchase([track_id, user_id, exclusive])
+        const db = req.app.get('db');
+        await db.record_purchase([track_id, user_id, exclusive])
+        if(exclusive){
+            await db.make_exclusive([track_id]);
+        }
         console.log(db[0]);
         res.sendStatus(200);
     },

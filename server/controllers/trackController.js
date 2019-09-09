@@ -8,7 +8,6 @@ module.exports = {
     if (req.query.genre) {
       const tracksByGenre = await db.get_by_genre([req.query.genre]);
       return res.status(200).json(tracksByGenre);
-      console.log(tracksByGenre);
     }
     return res.status(200).send(tracks);
   },
@@ -41,25 +40,20 @@ module.exports = {
   update: async (req, res) => {
     const { track_name, exclusive_price, base_price } = req.body;
     const { id } = req.params;
+    const { user_id } = req.session.user;
     const db = req.app.get("db");
-    db.tracks
-      .update(
-        { track_id: id },
-        {
-          [track_name]: track_name,
-          [base_price]: base_price,
-          [exclusive_price]: exclusive_price
-        }
-      )
-      .then(response => {
+    db.update_track([track_name, base_price, exclusive_price, id]).then(
+      response => {
         console.log(response);
-      });
+      }
+    );
     const userTracks = await db.get_user_tracks([user_id]);
     res.status(200).send({
       User_Tracks: userTracks
     });
   },
   delete: async (req, res) => {
+    const { user_id } = req.session.user;
     const { id } = req.params;
     const db = req.app.get("db");
     const newTrackfeed = await db.delete_track([id]);
