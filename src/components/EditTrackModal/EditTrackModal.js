@@ -12,7 +12,6 @@ function EditTrackModal(props) {
 
   useEffect(() => {
     console.log(props.trackInfo);
-
     setTrackInfo(props.trackInfo);
     setTrackName(props.trackInfo.track_name);
     setBasePrice(props.trackInfo.base_price);
