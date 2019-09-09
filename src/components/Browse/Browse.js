@@ -24,8 +24,8 @@ import headphones from "../../images/headphones.png";
 import fire from "../../images/fuego.png";
 import allTracksLogo from "../../images/allTracksLogo.svg";
 import "./Browse.scss";
-import PurchaseBeat from '../PurchaseBeat/PurchaseBeat';
-import { Pagination } from 'react-bootstrap';
+import PurchaseBeat from "../PurchaseBeat/PurchaseBeat";
+import { Pagination } from "react-bootstrap";
 
 function Browse(props) {
   const [genre, setGenre] = useState("");
@@ -51,9 +51,9 @@ function Browse(props) {
     "Blues",
     "Freestyle",
     "Hip-Hop",
-    "Old School",
+    "Old-School",
     "Pop",
-    "R&B",
+    "RnB",
     "Soul",
     "Trap",
     "Underground"
