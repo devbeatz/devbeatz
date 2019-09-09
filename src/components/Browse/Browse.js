@@ -24,7 +24,11 @@ import headphones from "../../images/headphones.png";
 import fire from "../../images/fuego.png";
 import allTracksLogo from "../../images/allTracksLogo.svg";
 import "./Browse.scss";
+<<<<<<< HEAD
+import PurchaseBeat from '../PurchaseBeat/PurchaseBeat';
+=======
 import { Pagination } from "react-bootstrap";
+>>>>>>> master
 
 function Browse(props) {
   const [genre, setGenre] = useState("");
@@ -49,8 +53,8 @@ function Browse(props) {
     "Alternative",
     "Blues",
     "Freestyle",
-    "HipHop",
-    "OldSchool",
+    "Hip-Hop",
+    "Old School",
     "Pop",
     "R&B",
     "Soul",
@@ -65,7 +69,12 @@ function Browse(props) {
   }, []);
 
   const getTracksByGenre = async (genre, i) => {
+<<<<<<< HEAD
+    genre = genre.split(' ').join('%20');
+    setGenre(genre);
+=======
     // setGenre(genre);
+>>>>>>> master
     setGenreString(genresStringsArray[i]);
     await props.getTracksByGenre(genresStringsArray[i]);
     setCurrentPage(1);
@@ -109,6 +118,38 @@ function Browse(props) {
           <h2>
             <img src={headphones} alt="" id="browse-icon" /> Browse by Genre
           </h2>
+<<<<<<< HEAD
+          {genre
+            ? genresArray
+            .filter(e => e === genre)
+            .map((e, i) => {
+              return (
+                <div
+                key={i}
+                style={{
+                  width: "50%",
+                  justifyContent: "space-between"
+                }}
+                onClick={getAllTracks}
+                className="genre-card"
+                >
+                      <img src={e} alt={e}></img>
+                      <h1>{genreString} Tracks</h1>
+                    </div>
+                  );
+                })
+            : genresArray.map((e, i) => {
+                return (
+                  <div
+                    key={i}
+                    onClick={() => getTracksByGenre(e, i)}
+                    className="genre-card"
+                  >
+                    <img src={e} alt={e}></img>
+                  </div>
+                );
+              })}
+=======
           {props.genre ? (
             <div
               key={genreIndex}
@@ -139,6 +180,7 @@ function Browse(props) {
               );
             })
           )}
+>>>>>>> master
         </div>
         <div id="browse-top5">
           <h2>
@@ -149,6 +191,7 @@ function Browse(props) {
             return (
               <Track
                 key={i}
+                track_id={e.track_id}
                 trackUrl={e.track_url}
                 trackTitle={e.track_name}
                 producerName={e.username}
@@ -167,6 +210,37 @@ function Browse(props) {
               <img src={allTracksLogo} alt="" id="browse-icon" /> All Tracks
             </h2>
           )}
+<<<<<<< HEAD
+          {genre
+            ? props.tracksGenre.map((e, i) => {
+                return (
+                  <Track
+                    key={i}
+                    track_id={e.track_id}
+                    producerName={e.username}
+                    trackUrl={e.track_url}
+                    trackTitle={e.track_name}
+                    basePrice={e.base_price}
+                    exclusivePrice={e.exclusive_price}
+                    exclusive={e.exclusive}
+                  />
+                );
+              })
+            : props.tracks &&
+              props.tracks.map((e, i) => {
+                return (
+                  <Track
+                    key={i}
+                    producerName={e.username}
+                    trackUrl={e.track_url}
+                    trackTitle={e.track_name}
+                    basePrice={e.base_price}
+                    exclusivePrice={e.exclusive_price}
+                    exclusive={e.exclusive}
+                  />
+                );
+              })}
+=======
           {currentTracks.map((e, i) => {
             return (
               <Track
@@ -183,6 +257,7 @@ function Browse(props) {
           <div id="pageNumbers">
             <Pagination>{pageNumbers}</Pagination>
           </div>
+>>>>>>> master
         </div>
         <Footer />
       </div>

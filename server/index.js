@@ -6,13 +6,27 @@ const auth = require("./controllers/authController");
 const tracks = require("./controllers/trackController");
 const purchases = require("./controllers/purchaseController");
 const sign_s3 = require("./controllers/awsController");
+<<<<<<< HEAD
+const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
+const router = require('./routes');
+const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, Secret} = process.env;
+const stripe = require('stripe')(Secret);
+=======
 // const stripe = require("stripe")(Secret);
 // const exphbs = require("express-handlebars");
 // const bodyParser = require("body-parser");
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, Secret } = process.env;
+>>>>>>> master
 
 const app = express();
+
+app.engine('handlerbars', exphbs({defaultlayout:'main'}));
+app.set('view engine', 'handlebars');
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
 
 app.use(express.json());
 app.use(
@@ -45,10 +59,18 @@ app.post("/api/tracks/create", tracks.create);
 app.delete("/api/tracks/delete/:id", tracks.delete);
 app.put("/api/tracks/update/:id", tracks.update);
 
+<<<<<<< HEAD
+//purchase
+app.post("/api/purchases/make", purchases.make);
+app.get("/api/purchases/userSales", purchases.userSales);
+app.get("/api/purchases/userBought", purchases.userBought);
+app.use(router);
+=======
 // purchase
 // app.post("/api/purchases/make", purchases.make);
 // app.post("/api/purchases/charge", purchases.createCharge);
 // app.get("/api/purchases/userSales", purchases.userSales);
 // app.get("/api/purchases/userBought", purchases.userBought);
+>>>>>>> master
 
 app.listen(SERVER_PORT, () => console.log(`listening on port: ${SERVER_PORT}`));
