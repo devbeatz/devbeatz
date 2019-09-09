@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getTracksByUser } from "../../redux/reducers/trackReducer";
+import {
+  getTracksByUser,
+  updateTrack,
+  deleteTrack
+} from "../../redux/reducers/trackReducer";
 import Sidebar from "../Sidebar/Sidebar";
 import Track from "../Track/Track";
 import Footer from "../Footer/Footer";
@@ -11,10 +15,18 @@ import audioWave from "../../images/audioWave.png";
 import musicLibrary from "../../images/musicLibrary.png";
 import "./Dashboard.scss";
 import UploadBeat from "../UploadBeat/UploadBeat";
+import EditTrackModal from "../EditTrackModal/EditTrackModal";
+import DeleteTrackModal from "../DeleteTrackModal/DeleteTrackModal";
 
 function Dashboard(props) {
   const [upload, setUpload] = useState(false);
+  const [trackInfo, setTrackInfo] = useState({});
+  const [editModal, setEditModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [deleteId, setDeleteId] = useState("");
+
   const { loggedIn, getTracksByUser, history } = props;
+
   useEffect(() => {
     if (loggedIn) {
       getTracksByUser();
@@ -23,10 +35,37 @@ function Dashboard(props) {
     }
   }, [loggedIn, getTracksByUser, history]);
 
+  const handleEditTrack = track => {
+    setTrackInfo(track);
+    setEditModal(true);
+  };
+
+  const handleDeleteTrack = id => {
+    setDeleteId(id);
+    setDeleteModal(true);
+  };
+
   return (
     <div id="dashboard">
       <Sidebar />
       <UploadBeat show={upload} onHide={() => setUpload(false)} />
+      {trackInfo.track_name && (
+        <EditTrackModal
+          show={editModal}
+          onHide={() => {
+            setTrackInfo({});
+            setEditModal(false);
+          }}
+          trackInfo={trackInfo}
+        />
+      )}
+      {deleteId && (
+        <DeleteTrackModal
+          show={deleteModal}
+          onHide={() => setDeleteModal(false)}
+          deleteId={deleteId}
+        />
+      )}
       <div id="user-dashboard">
         <div id="dashboard-header">
           <h1>
@@ -70,7 +109,6 @@ function Dashboard(props) {
                       .split("")
                       .slice(1, e.base_price.length)
                       .join("") * 1;
-                  console.log(excl, base, base + excl);
                   return (
                     <div key={i}>
                       <p>{e.track_name}</p>
@@ -82,6 +120,10 @@ function Dashboard(props) {
                           ? excl + base * (e.sell_count - 1)
                           : base * e.sell_count}
                       </p>
+                      <button onClick={() => handleEditTrack(e)}>Edit</button>
+                      <button onClick={() => handleDeleteTrack(e.track_id)}>
+                        Delete
+                      </button>
                     </div>
                   );
                 })
