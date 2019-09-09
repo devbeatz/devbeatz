@@ -33,7 +33,8 @@ function PurchaseBeat(props){
                                 base={props.base_price}
                                 exclusive={props.exclusive_price}
                                 track_name={props.track_name}
-                                track_id={props.track_id}/>
+                                track_id={props.track_id}
+                                onHide={props.onHide}/>
                             </Elements>
                         </Modal.Body> 
                     </Modal>

@@ -8,6 +8,7 @@ function StripeForm(props){
     const [ exclusive, toggleExclusive ] = useState(false)
 
     const submitHandler = async () => {
+        props.onHide();
         try{
             let amount = Number(Amount.slice(1))
             let { token } = await props.stripe.createToken({name: username})
