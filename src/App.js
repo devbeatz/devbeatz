@@ -9,6 +9,7 @@ import routes from "./components/routes";
 import LoginRegister from "./components/LoginRegister/LoginRegister";
 import UploadBeat from "./components/UploadBeat/UploadBeat";
 import { toggleLoginModal } from "./redux/reducers/authReducer";
+import PurchaseBeat from './components/PurchaseBeat/PurchaseBeat';
 
 function App(props) {
   return (
