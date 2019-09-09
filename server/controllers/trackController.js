@@ -31,11 +31,8 @@ module.exports = {
         const { id } = req.params;
         const { user_id } = req.session.user;
         const db = req.app.get('db');
-        db.tracks.update({track_id: id}, 
-            {[track_name]: track_name, 
-            [base_price]: base_price, 
-            [exclusive_price]: exclusive_price})
-            .then(response => {
+        db.update_track([track_name, base_price, exclusive_price, id])
+        .then(response => {
                 console.log(response)
         })
         const userTracks = await db.get_user_tracks([user_id]);
