@@ -3,6 +3,7 @@ import axios from "axios";
 const initialState = {
   tracks: [],
   tracksGenre: [],
+  genre: "",
   top5: [],
   userBought: [],
   userUploaded: [],
@@ -11,6 +12,7 @@ const initialState = {
 };
 
 const GET_ALL_TRACKS = "GET_ALL_TRACKS";
+const RESET_GENRE = "RESET_GENRE";
 const GET_TOP_5_TRACKS = "GET_TOP_5_TRACKS";
 const GET_TRACKS_BY_GENRE = "GET_TRACKS_BY_GENRE";
 const GET_TRACKS_BY_USER = "GET_TRACKS_BY_USER";
@@ -40,8 +42,14 @@ export function getTracksByGenre(genre) {
   return {
     type: GET_TRACKS_BY_GENRE,
     payload: axios.get(`/api/tracks/getall?genre=${genre}`).then(res => {
-      return res.data;
+      return [res.data, genre];
     })
+  };
+}
+
+export function resetGenre() {
+  return {
+    type: RESET_GENRE
   };
 }
 
@@ -72,10 +80,10 @@ export function deleteTrack(trackId) {
   };
 }
 
-export function updateTrack(trackId) {
+export function updateTrack(trackId, trackInfo) {
   return {
     type: UPDATE_TRACK,
-    payload: axios.put(`/api/tracks/update/${trackId}`).then(res => {
+    payload: axios.put(`/api/tracks/update/${trackId}`, trackInfo).then(res => {
       return res.data;
     })
   };
@@ -88,6 +96,7 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         tracks: payload,
+        genre: "",
         loading: false
       };
     case `${GET_ALL_TRACKS}_PENDING`:
@@ -109,13 +118,19 @@ export default function reducer(state = initialState, action) {
     case `${GET_TRACKS_BY_GENRE}_FULFILLED`:
       return {
         ...state,
-        tracksGenre: payload,
+        tracksGenre: payload[0],
+        genre: payload[1],
         loading: false
       };
     case `${GET_TRACKS_BY_GENRE}_PENDING`:
       return {
         ...state,
         loading: true
+      };
+    case RESET_GENRE:
+      return {
+        ...state,
+        genre: ""
       };
     case `${GET_TRACKS_BY_USER}_FULFILLED`:
       return {

@@ -10,7 +10,7 @@ const sign_s3 = require("./controllers/awsController");
 // const exphbs = require("express-handlebars");
 // const bodyParser = require("body-parser");
 
-const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
+const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, Secret } = process.env;
 
 const app = express();
 
@@ -45,7 +45,7 @@ app.post("/api/tracks/create", tracks.create);
 app.delete("/api/tracks/delete/:id", tracks.delete);
 app.put("/api/tracks/update/:id", tracks.update);
 
-//purchase
+// purchase
 // app.post("/api/purchases/make", purchases.make);
 // app.post("/api/purchases/charge", purchases.createCharge);
 // app.get("/api/purchases/userSales", purchases.userSales);
