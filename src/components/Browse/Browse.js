@@ -49,10 +49,10 @@ function Browse(props) {
     "Alternative",
     "Blues",
     "Freestyle",
-    "HipHop",
-    "OldSchool",
+    "Hip-Hop",
+    "Old-School",
     "Pop",
-    "R&B",
+    "RnB",
     "Soul",
     "Trap",
     "Underground"

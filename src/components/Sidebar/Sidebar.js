@@ -61,52 +61,68 @@ function Sidebar(props) {
         </div>
         <div id="genre-list">
           <Link to="/Browse">
-            <button name="Alternative" onClick={handleGenreSelect}>
+            <button
+              className="link"
+              name="Alternative"
+              onClick={handleGenreSelect}
+            >
               Alternative
             </button>
           </Link>
           <Link to="/Browse">
-            <button name="Blues" onClick={handleGenreSelect}>
+            <button className="link" name="Blues" onClick={handleGenreSelect}>
               Blues
             </button>
           </Link>
           <Link to="/Browse">
-            <button name="Freestyle" onClick={handleGenreSelect}>
+            <button
+              className="link"
+              name="Freestyle"
+              onClick={handleGenreSelect}
+            >
               Freestyle
             </button>
           </Link>
           <Link to="/Browse">
-            <button name="HipHop" onClick={handleGenreSelect}>
+            <button className="link" name="Hip-Hop" onClick={handleGenreSelect}>
               Hip-Hop
             </button>
           </Link>
           <Link to="/Browse">
-            <button name="OldSchool" onClick={handleGenreSelect}>
+            <button
+              className="link"
+              name="Old-School"
+              onClick={handleGenreSelect}
+            >
               Old School
             </button>
           </Link>
           <Link to="/Browse">
-            <button name="Pop" onClick={handleGenreSelect}>
+            <button className="link" name="Pop" onClick={handleGenreSelect}>
               Pop
             </button>
           </Link>
           <Link to="/Browse">
-            <button name="RnB" onClick={handleGenreSelect}>
+            <button className="link" name="RnB" onClick={handleGenreSelect}>
               R&B
             </button>
           </Link>
           <Link to="/Browse">
-            <button name="Soul" onClick={handleGenreSelect}>
+            <button className="link" name="Soul" onClick={handleGenreSelect}>
               Soul
             </button>
           </Link>
           <Link to="/Browse">
-            <button name="Trap" onClick={handleGenreSelect}>
+            <button className="link" name="Trap" onClick={handleGenreSelect}>
               Trap
             </button>
           </Link>
           <Link to="/Browse">
-            <button name="Underground" onClick={handleGenreSelect}>
+            <button
+              className="link"
+              name="Underground"
+              onClick={handleGenreSelect}
+            >
               Underground
             </button>
           </Link>
