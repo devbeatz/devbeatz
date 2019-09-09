@@ -135,7 +135,7 @@ function Browse(props) {
                   onClick={() => getTracksByGenre(e, i)}
                   className="genre-card"
                 >
-                  <img src={e} alt={e}></img>
+                  <img src={e} alt={e} className="responsive"></img>
                 </div>
               );
             })
