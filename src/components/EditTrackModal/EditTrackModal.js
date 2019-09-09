@@ -25,6 +25,7 @@ function EditTrackModal(props) {
     track.exclusive_price = exclusivePrice;
     track.track_name = trackName;
     props.updateTrack(track.track_id, track);
+    props.onHide();
   };
 
   return (
