@@ -67,26 +67,8 @@
   padding-bottom: 190px;
 }
 
-// #sidebar-user-info {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: flex-start;
-
-//   h3 {
-//     font-family: "Righteous", cursive;
-//     color: #19f4fb;
-//     text-shadow: 4px 4px #e91e63;
-//     margin: 0 10px 10px 10px;
-//   }
-// }
-// #sidebar-search {
-//   display: flex;
-//   flex-direction: column;
-//   margin: 20px;
-
-// }
-
-// input[type="text"] {
-//   border: none;
-//   border-bottom: 3px solid #e91e63;
-// }
+@media (max-width: 975px) {
+  h1 {
+    font-size: 2em;
+  }
+}
