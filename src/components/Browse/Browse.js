@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import {
   getTracksByGenre,
   getAllTracks,
-  getTopFiveTracks
+  getTopFiveTracks,
+  resetGenre
 } from "../../redux/reducers/trackReducer";
 import "./Browse.scss";
 import Sidebar from "../Sidebar/Sidebar";
@@ -23,12 +24,19 @@ import headphones from "../../images/headphones.png";
 import fire from "../../images/fuego.png";
 import allTracksLogo from "../../images/allTracksLogo.svg";
 import "./Browse.scss";
+<<<<<<< HEAD
 import PurchaseBeat from '../PurchaseBeat/PurchaseBeat';
+=======
+import { Pagination } from "react-bootstrap";
+>>>>>>> master
 
 function Browse(props) {
   const [genre, setGenre] = useState("");
   const [genreString, setGenreString] = useState("");
-  const [tracks, setTracks] = useState([]);
+  // const [tracks, setTracks] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [tracksPerPage] = useState(6);
+
   const genresArray = [
     AlternativeCover,
     BluesCover,
@@ -48,29 +56,59 @@ function Browse(props) {
     "Hip-Hop",
     "Old School",
     "Pop",
-    "RnB",
+    "R&B",
     "Soul",
     "Trap",
     "Underground"
   ];
 
   useEffect(() => {
+    props.resetGenre();
     props.getAllTracks();
     props.getTopFiveTracks();
   }, []);
 
   const getTracksByGenre = async (genre, i) => {
+<<<<<<< HEAD
     genre = genre.split(' ').join('%20');
     setGenre(genre);
+=======
+    // setGenre(genre);
+>>>>>>> master
     setGenreString(genresStringsArray[i]);
     await props.getTracksByGenre(genresStringsArray[i]);
-    setTracks(props.tracksGenre);
+    setCurrentPage(1);
+    // setTracks(props.tracksGenre);
   };
 
   const getAllTracks = () => {
-    setGenre("");
-    setTracks(props.tracks);
+    props.resetGenre();
+    // setGenre("");
+    setCurrentPage(1);
   };
+
+  const handlePageSelect = e => {
+    setCurrentPage(e.target.id);
+  };
+
+  const tracks = props.genre ? props.tracksGenre : props.tracks;
+  const indexOfLastTrack = currentPage * tracksPerPage;
+  const indexOfFirstTrack = indexOfLastTrack - tracksPerPage;
+  const currentTracks = tracks.slice(indexOfFirstTrack, indexOfLastTrack);
+  const pageNumbers = [];
+  const genreIndex = genresStringsArray.findIndex(e => e == props.genre);
+  for (let i = 1; i <= Math.ceil(tracks.length / tracksPerPage); i++) {
+    pageNumbers.push(
+      <Pagination.Item
+        key={i}
+        id={i}
+        active={i == currentPage}
+        onClick={handlePageSelect}
+      >
+        {i}
+      </Pagination.Item>
+    );
+  }
 
   return (
     <div id="browse">
@@ -80,6 +118,7 @@ function Browse(props) {
           <h2>
             <img src={headphones} alt="" id="browse-icon" /> Browse by Genre
           </h2>
+<<<<<<< HEAD
           {genre
             ? genresArray
             .filter(e => e === genre)
@@ -110,6 +149,38 @@ function Browse(props) {
                   </div>
                 );
               })}
+=======
+          {props.genre ? (
+            <div
+              key={genreIndex}
+              style={{
+                width: "50%",
+                justifyContent: "space-between"
+              }}
+              onClick={getAllTracks}
+              className="genre-card"
+            >
+              <img
+                src={genresArray[genreIndex]}
+                alt={genresStringsArray[genreIndex]}
+              ></img>
+              <h1>{genresStringsArray[genreIndex]} Tracks</h1>
+              <button onClick={getAllTracks}>All Tracks</button>
+            </div>
+          ) : (
+            genresArray.map((e, i) => {
+              return (
+                <div
+                  key={i}
+                  onClick={() => getTracksByGenre(e, i)}
+                  className="genre-card"
+                >
+                  <img src={e} alt={e}></img>
+                </div>
+              );
+            })
+          )}
+>>>>>>> master
         </div>
         <div id="browse-top5">
           <h2>
@@ -132,13 +203,14 @@ function Browse(props) {
           })}
         </div>
         <div id="browse-all-tracks">
-          {genre ? (
-            <h1>{genreString} Tracks</h1>
+          {props.genre ? (
+            <h1>{genresStringsArray[genreIndex]} Tracks</h1>
           ) : (
             <h2>
               <img src={allTracksLogo} alt="" id="browse-icon" /> All Tracks
             </h2>
           )}
+<<<<<<< HEAD
           {genre
             ? props.tracksGenre.map((e, i) => {
                 return (
@@ -168,6 +240,24 @@ function Browse(props) {
                   />
                 );
               })}
+=======
+          {currentTracks.map((e, i) => {
+            return (
+              <Track
+                key={i}
+                producerName={e.username}
+                trackUrl={e.track_url}
+                trackTitle={e.track_name}
+                basePrice={e.base_price}
+                exclusivePrice={e.exclusive_price}
+                exclusive={e.exclusive}
+              />
+            );
+          })}
+          <div id="pageNumbers">
+            <Pagination>{pageNumbers}</Pagination>
+          </div>
+>>>>>>> master
         </div>
         <Footer />
       </div>
@@ -179,11 +269,12 @@ function mapStateToProps(reduxState) {
   return {
     top5: reduxState.track.top5,
     tracks: reduxState.track.tracks,
-    tracksGenre: reduxState.track.tracksGenre
+    tracksGenre: reduxState.track.tracksGenre,
+    genre: reduxState.track.genre
   };
 }
 
 export default connect(
   mapStateToProps,
-  { getTracksByGenre, getAllTracks, getTopFiveTracks }
+  { getTracksByGenre, getAllTracks, getTopFiveTracks, resetGenre }
 )(Browse);

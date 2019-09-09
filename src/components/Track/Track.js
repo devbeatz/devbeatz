@@ -32,6 +32,7 @@ function Track(props) {
           <ClippPlayer
             className={"clipp-player"}
             src={props.trackUrl}
+            initialDuration={0}
             btnStyle={{
               marginTop: "-18px",
               height: "50px",
@@ -62,7 +63,7 @@ function Track(props) {
               height: 60,
               hideScrollbar: true,
               normalize: true,
-              partialRender: true,
+              partialRender: false,
               progressColor: "deepskyblue",
               responsive: true,
               waveColor: "white"
