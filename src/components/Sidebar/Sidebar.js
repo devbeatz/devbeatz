@@ -28,7 +28,7 @@ function Sidebar(props) {
           <img src={btzLogo} alt="" />
         </div>
         <Link to="/">
-          <h1>Beatz</h1>
+          <h1 id="beatzHomepage">Beatz</h1>
         </Link>
       </div>
       <div id="dashboard-buttons-div">
