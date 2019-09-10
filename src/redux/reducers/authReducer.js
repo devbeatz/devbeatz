@@ -11,12 +11,12 @@ const initialState = {
   errorMessage: ""
 };
 
-const LOGIN_USER = "LOGIN_USER";
-const REGISTER_USER = "REGISTER_USER";
-const LOGOUT_USER = "LOGOUT_USER";
-const UPDATE_USER_INFO = "UPDATE_USER_INFO";
-const TOGGLE_LOGIN_MODAL = "TOGGLE_LOGIN_MODAL";
-const TOGGLE_LOGIN_REGISTER = "TOGGLE_LOGIN_REGISTER";
+export const LOGIN_USER = "LOGIN_USER";
+export const REGISTER_USER = "REGISTER_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
+export const UPDATE_USER_INFO = "UPDATE_USER_INFO";
+export const TOGGLE_LOGIN_MODAL = "TOGGLE_LOGIN_MODAL";
+export const TOGGLE_LOGIN_REGISTER = "TOGGLE_LOGIN_REGISTER";
 
 export function loginUser(user) {
   return {

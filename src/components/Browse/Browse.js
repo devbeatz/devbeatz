@@ -28,9 +28,6 @@ import PurchaseBeat from "../PurchaseBeat/PurchaseBeat";
 import { Pagination } from "react-bootstrap";
 
 function Browse(props) {
-  const [genre, setGenre] = useState("");
-  const [genreString, setGenreString] = useState("");
-  // const [tracks, setTracks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [tracksPerPage] = useState(6);
 
@@ -67,7 +64,6 @@ function Browse(props) {
 
   const getTracksByGenre = async (genre, i) => {
     // setGenre(genre);
-    setGenreString(genresStringsArray[i]);
     await props.getTracksByGenre(genresStringsArray[i]);
     setCurrentPage(1);
     // setTracks(props.tracksGenre);

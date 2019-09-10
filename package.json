@@ -16,12 +16,14 @@
     "clipp-player": "^1.0.6",
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
+    "enzyme": "^3.10.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.16.2",
     "massive": "^5.11.2",
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
+    "react-addons-test-utils": "^15.6.2",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-chartjs-2": "^2.7.6",
     "react-dom": "^16.9.0",
@@ -38,7 +40,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
