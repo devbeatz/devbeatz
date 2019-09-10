@@ -30,6 +30,7 @@ describe("getAllTracks", () => {
   });
 });
 
+<<<<<<< HEAD
 test('Get user tracks', () => {
   expect(getTracksByUser()).toEqual({
     type: GET_TRACKS_BY_USER,
@@ -59,12 +60,34 @@ test('Updating track', () => {
 })
 
 test("Input with banana", () => {
+=======
+>>>>>>> master
 test("Should Hit GET Endpoint for getall tracks", () => {
   expect(getAllTracks()).toEqual({
     type: GET_ALL_TRACKS,
     payload: axios.get("/api/tracks/getall")
   });
 })});
+
+test("should only have a type of 'RESET_GENRE' and no payload", () => {
+  expect(resetGenre()).toEqual({
+    type: RESET_GENRE
+  });
+});
+
+test("should hit GET endpoint for tracks/topfive", () => {
+  expect(getTopFiveTracks()).toEqual({
+    type: GET_TOP_5_TRACKS,
+    payload: axios.get("/api/tracks/getall")
+  });
+});
+
+test("should hit getall tracks endpoint with query for specific genre", () => {
+  expect(getTracksByGenre("espanol")).toEqual({
+    type: GET_TRACKS_BY_GENRE,
+    payload: axios.get(`/api/tracks/getall?genre=espanol`)
+  });
+});
 
 test("should only have a type of 'RESET_GENRE' and no payload", () => {
   expect(resetGenre()).toEqual({
