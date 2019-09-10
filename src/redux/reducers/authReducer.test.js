@@ -15,7 +15,7 @@ import {
   deleteTrack,
   UPDATE_TRACK,
   updateTrack
-} from "../src/redux/reducers/trackReducer";
+} from "./trackReducer";
 import {
   LOGIN_USER,
   loginUser,
@@ -29,10 +29,10 @@ import {
   toggleLoginModal,
   TOGGLE_LOGIN_REGISTER,
   toggleLoginRegister
-} from "../src/redux/reducers/authReducer";
+} from "./authReducer";
 import axios from "axios";
-import * as actions from "../src/redux/reducers/authReducer";
-import * as types from "../src/redux/reducers/authReducer";
+import * as actions from "./authReducer";
+import * as types from "./authReducer";
 
 describe("registerNewUser", () => {
   let userInput = "lilDucky";
