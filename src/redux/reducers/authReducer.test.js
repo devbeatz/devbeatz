@@ -30,3 +30,18 @@ import {
   TOGGLE_LOGIN_REGISTER,
   toggleLoginRegister
 } from "../src/redux/reducers/authReducer";
+import axios from "axios";
+import * as actions from "../src/redux/reducers/authReducer";
+import * as types from "../src/redux/reducers/authReducer";
+
+describe("registerNewUser", () => {
+  let userInput = "lilDucky";
+  it("should bring in payload", () => {
+    const text = "payload";
+    const expectedAction = {
+      type: types.REGISTER_USER,
+      payload: axios.post("/auth/register", $`{userInput}`)
+    };
+    expectedAction(actions.registerNewUser(userInput)).toEqual(expectedAction);
+  });
+});
