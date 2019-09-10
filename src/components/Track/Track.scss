@@ -90,4 +90,24 @@
       width: 30px;
     }
   }
+
+  @media (max-width: 975px) {
+    #track-player-div {
+      width: 85%;
+    }
+
+    h2 {
+      font-size: 0.9em;
+    }
+
+    #track-buttons {
+      margin-right: 30px;
+    }
+
+    .download-icon {
+      margin-right: 100px;
+      height: 30px;
+      width: 30px;
+    }
+  }
 }

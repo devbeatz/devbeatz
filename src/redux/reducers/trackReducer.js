@@ -11,14 +11,14 @@ const initialState = {
   loading: false
 };
 
-const GET_ALL_TRACKS = "GET_ALL_TRACKS";
-const RESET_GENRE = "RESET_GENRE";
-const GET_TOP_5_TRACKS = "GET_TOP_5_TRACKS";
-const GET_TRACKS_BY_GENRE = "GET_TRACKS_BY_GENRE";
-const GET_TRACKS_BY_USER = "GET_TRACKS_BY_USER";
-const ADD_TRACK = "ADD_TRACK";
-const DELETE_TRACK = "DELETE_TRACK";
-const UPDATE_TRACK = "UPDATE_TRACK";
+export const GET_ALL_TRACKS = "GET_ALL_TRACKS";
+export const RESET_GENRE = "RESET_GENRE";
+export const GET_TOP_5_TRACKS = "GET_TOP_5_TRACKS";
+export const GET_TRACKS_BY_GENRE = "GET_TRACKS_BY_GENRE";
+export const GET_TRACKS_BY_USER = "GET_TRACKS_BY_USER";
+export const ADD_TRACK = "ADD_TRACK";
+export const DELETE_TRACK = "DELETE_TRACK";
+export const UPDATE_TRACK = "UPDATE_TRACK";
 
 export function getAllTracks() {
   return {
@@ -160,7 +160,7 @@ export default function reducer(state = initialState, action) {
     case `${UPDATE_TRACK}_FULFILLED`:
       return {
         ...state,
-        userTracks: payload,
+        userUploaded: payload.User_Tracks,
         loading: false
       };
     case `${UPDATE_TRACK}_PENDING`:
@@ -171,7 +171,7 @@ export default function reducer(state = initialState, action) {
     case `${DELETE_TRACK}_FULFILLED`:
       return {
         ...state,
-        userTracks: payload,
+        userUploaded: payload.User_Tracks,
         loading: false
       };
     case `${DELETE_TRACK}_PENDING`:

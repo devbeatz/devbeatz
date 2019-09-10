@@ -6,28 +6,31 @@ function Footer(props) {
   return (
     <div id="footer">
       <p>
-        Made by{" "}
-        <span className="emphasis">
-          <a href="https://github.com/tkxx" target="_blank">
-            Tabitha Sin
+        <div id="footer-names">
+          Made by{" "}
+          <span className="emphasis">
+            {" "}
+            <a href="https://github.com/tkxx" target="_blank">
+              Tabitha Sin
+            </a>
+          </span>
+          ,{" "}
+          <span className="emphasis">
+            <a href="https://github.com/Jack-B-Lenihan" target="_blank">
+              Jack Lenihan
+            </a>
+          </span>
+          , and{" "}
+          <span className="emphasis">
+            <a href="https://github.com/nolanjharris" target="_blank">
+              Nolan Harris
+            </a>
+          </span>
+          .{" "}
+          <a href="https://github.com/devbeatz">
+            <img src={githubIcon} alt="github icon" id="github-icon" />
           </a>
-        </span>
-        ,{" "}
-        <span className="emphasis">
-          <a href="https://github.com/Jack-B-Lenihan" target="_blank">
-            Jack Lenihan
-          </a>
-        </span>
-        , and{" "}
-        <span className="emphasis">
-          <a href="https://github.com/nolanjharris" target="_blank">
-            Nolan Harris
-          </a>
-        </span>
-        .{" "}
-        <a href="https://github.com/devbeatz">
-          <img src={githubIcon} alt="github icon" id="github-icon" />
-        </a>
+        </div>
       </p>
     </div>
   );

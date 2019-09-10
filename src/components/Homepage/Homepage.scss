@@ -11,6 +11,7 @@
     align-items: center;
     height: 100vh;
     background: url("../../images/bgIMG.jpg");
+    background-repeat: no-repeat;
     width: 100%;
 
     & > div {
@@ -87,6 +88,7 @@
     align-items: center;
     justify-content: space-around;
     background-image: url("../../images/turntableCopy.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
 
     #directions-header {
@@ -143,6 +145,75 @@
     & > h3 {
       font-family: "Raleway", sans-serif;
       font-size: 1.3em;
+    }
+  }
+
+  @media (max-width: 975px) {
+    #homepage-title {
+      font-size: 7em;
+    }
+
+    #homepage-about {
+      font-size: 0.9em;
+      margin-left: 120px;
+      margin-right: 120px;
+    }
+
+    #homepage-samples-text {
+      font-size: 2.5em;
+    }
+
+    #browse-button {
+      padding: 5px;
+      font-size: 13px;
+      width: 110px;
+    }
+
+    #directions-columns {
+      height: 250px;
+      width: 100% !important;
+      display: flex;
+      justify-content: space-evenly;
+
+      & > div {
+        width: 45%;
+        height: 100%;
+        display: flex;
+        padding: 5px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        & > div {
+          height: 80%;
+          background: inherit;
+          font-family: "Raleway", sans-serif;
+          color: white;
+          text-align: justify;
+          font-size: 0.9em;
+        }
+      }
+    }
+
+    #producer-info {
+      width: 100%;
+    }
+
+    #producers-direction-login-button {
+      font-size: 13px;
+      padding: 5px;
+      width: 100px;
+    }
+
+    #artist-info {
+      width: 100%;
+    }
+
+    #artist-direction-browse-button {
+      font-size: 13px;
+      padding: 5px;
+      width: 110px;
+      margin-top: 30px;
     }
   }
 }

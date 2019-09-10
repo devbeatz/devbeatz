@@ -28,9 +28,6 @@ import PurchaseBeat from "../PurchaseBeat/PurchaseBeat";
 import { Pagination } from "react-bootstrap";
 
 function Browse(props) {
-  const [genre, setGenre] = useState("");
-  const [genreString, setGenreString] = useState("");
-  // const [tracks, setTracks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [tracksPerPage] = useState(6);
 
@@ -67,7 +64,6 @@ function Browse(props) {
 
   const getTracksByGenre = async (genre, i) => {
     // setGenre(genre);
-    setGenreString(genresStringsArray[i]);
     await props.getTracksByGenre(genresStringsArray[i]);
     setCurrentPage(1);
     // setTracks(props.tracksGenre);
@@ -124,7 +120,7 @@ function Browse(props) {
                 src={genresArray[genreIndex]}
                 alt={genresStringsArray[genreIndex]}
               ></img>
-              <h1>{genresStringsArray[genreIndex]} Tracks</h1>
+              {/* <h1>{genresStringsArray[genreIndex]} Tracks</h1> */}
               <button onClick={getAllTracks}>All Tracks</button>
             </div>
           ) : (
@@ -135,36 +131,36 @@ function Browse(props) {
                   onClick={() => getTracksByGenre(e, i)}
                   className="genre-card"
                 >
-                  <img src={e} alt={e}></img>
+                  <img src={e} alt={e} className="responsive"></img>
                 </div>
               );
             })
           )}
         </div>
-        <div id="browse-top5">
-          <h2>
-            <img src={fire} alt="" className="fuego-icon" />
-            This Week's Fuego Tracks
-          </h2>
-          {props.top5.map((e, i) => {
-            return (
-              <Track
-                key={i}
-                track_id={e.track_id}
-                trackUrl={e.track_url}
-                trackTitle={e.track_name}
-                producerName={e.username}
-                basePrice={e.base_price}
-                exclusivePrice={e.exclusive_price}
-                exclusive={e.exclusive}
-              />
-            );
-          })}
-        </div>
+        {!props.genre && (
+          <div id="browse-top5">
+            <h2>
+              <img src={fire} alt="" className="fuego-icon" />
+              This Week's Fuego Tracks
+            </h2>
+            {props.top5.map((e, i) => {
+              return (
+                <Track
+                  key={i}
+                  track_id={e.track_id}
+                  trackUrl={e.track_url}
+                  trackTitle={e.track_name}
+                  producerName={e.username}
+                  basePrice={e.base_price}
+                  exclusivePrice={e.exclusive_price}
+                  exclusive={e.exclusive}
+                />
+              );
+            })}
+          </div>
+        )}
         <div id="browse-all-tracks">
-          {props.genre ? (
-            <h1>{genresStringsArray[genreIndex]} Tracks</h1>
-          ) : (
+          {!props.genre && (
             <h2>
               <img src={allTracksLogo} alt="" id="browse-icon" /> All Tracks
             </h2>

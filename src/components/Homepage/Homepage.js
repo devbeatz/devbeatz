@@ -53,7 +53,7 @@ function Homepage(props) {
       </div>
       <div id="homepage-samples">
         {/* samples section */}
-        <div id="homepage-samples-text">Samples</div>
+        <div id="homepage-samples-text">Featured Beat</div>
         {/* <div id="samples-box"> */}
         {/* <BeatCarousel top5={props.sampleTop5} /> */}
         <div id="samples">
@@ -68,7 +68,7 @@ function Homepage(props) {
             />
           )}
           <Link to="/Browse">
-            <button>Browse Beats</button>
+            <button id="browse-button">Browse Beats</button>
           </Link>
         </div>
         {/* </div> */}
@@ -97,7 +97,10 @@ function Homepage(props) {
                 </p>
               </div>
             </div>
-            <button onClick={() => props.toggleLoginModal("login")}>
+            <button
+              onClick={() => props.toggleLoginModal("login")}
+              id="producers-direction-login-button"
+            >
               Login
             </button>
           </div>
@@ -123,7 +126,7 @@ function Homepage(props) {
               </div>
             </div>
             <Link to="/Browse">
-              <button>Browse Beats</button>
+              <button id="artist-direction-browse-button">Browse Beats</button>
             </Link>
           </div>
         </div>
