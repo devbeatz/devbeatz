@@ -8,10 +8,12 @@ function StripeForm(props){
     const [ exclusive, toggleExclusive ] = useState(false)
 
     const submitHandler = async () => {
+        const { user_id } = props
         props.onHide();
         try{
             let amount = Number(Amount.slice(1))
-            let { token } = await props.stripe.createToken({name: username})
+            let { token } = await props.stripe.createToken({name: username, id: user_id})
+            console.log(token) 
             await fetch('/api/buy',{
                 method: 'POST',
                 headers: {
@@ -48,7 +50,10 @@ function StripeForm(props){
 
             <CardElement />
 
-            <button type='submit'>Confirm</button>
+            <a href={props.trackUrl} download>
+                <button type='submit'>Confirm</button>
+            </a>
+                
         </form>
     )
 }
