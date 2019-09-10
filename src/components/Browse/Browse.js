@@ -176,6 +176,7 @@ function Browse(props) {
                 basePrice={e.base_price}
                 exclusivePrice={e.exclusive_price}
                 exclusive={e.exclusive}
+                user_id={e.user_id}
               />
             );
           })}
