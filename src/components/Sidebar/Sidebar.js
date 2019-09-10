@@ -54,7 +54,9 @@ function Sidebar(props) {
       </div>
       <div id="sidebar-search">
         <Link to="/Browse">
-          <button onClick={props.resetGenre}>Browse All Beats</button>
+          <button onClick={props.resetGenre} id="dashboard-browse-button">
+            Browse All Beats
+          </button>
         </Link>
         <div className="sidebar-titles">
           <h3>Genres</h3>
