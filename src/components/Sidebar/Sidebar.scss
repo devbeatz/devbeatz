@@ -67,8 +67,26 @@
   padding-bottom: 190px;
 }
 
+//MEDIA QUERY FOR SMALLER DEVICES
 @media (max-width: 975px) {
   h1 {
-    font-size: 2em;
+    font-size: 1.8em;
   }
+
+  h3 {
+    font-size: 1.6em;
+  }
+
+  #dashboard-button {
+    width: 100px;
+    font-size: 13px;
+  }
+
+  #dashboard-browse-button {
+    width: 100px;
+    font-size: 12px;
+  }
+
+  // #sidebar-search {
+  // }
 }
