@@ -17,6 +17,7 @@ import "./Dashboard.scss";
 import UploadBeat from "../UploadBeat/UploadBeat";
 import EditTrackModal from "../EditTrackModal/EditTrackModal";
 import DeleteTrackModal from "../DeleteTrackModal/DeleteTrackModal";
+import ProducerStats from "../ProducerStats/ProducerStats";
 
 function Dashboard(props) {
   const [upload, setUpload] = useState(false);
@@ -79,7 +80,7 @@ function Dashboard(props) {
           </div>
         </div>
         <div id="producer-stats">
-          <h1>PLACEHOLDER FOR PRODUCER STATS</h1>
+          <ProducerStats />
         </div>
         <div id="dashboard-main">
           <div id="uploaded-header">

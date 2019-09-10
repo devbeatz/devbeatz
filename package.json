@@ -12,6 +12,7 @@
     "body-parser": "^1.19.0",
     "boostrap": "^2.0.0",
     "bootstrap": "^4.3.1",
+    "chart.js": "^2.8.0",
     "clipp-player": "^1.0.6",
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
