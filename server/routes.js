@@ -17,7 +17,8 @@ const charge = (token, amount) => {
 
 router.post('/api/buy', async (req, res, next ) => {
     try{
-        let data = await charge(req.body.token.id, req.body.amount)
+        req.token.id = req.session.user.id
+        let data = await charge(req.token.id, req.body.amount)
         console.log(data)
         res.send('Charged');
     }catch(e){

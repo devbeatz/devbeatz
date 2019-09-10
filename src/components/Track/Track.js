@@ -16,6 +16,7 @@ function Track(props) {
       exclusive_price={props.exclusivePrice}
       track_name={props.trackTitle}
       track_id={props.track_id}
+      track_url={props.track_url}
       />
       <div id="track-player-div">
         <div id="track-info">
