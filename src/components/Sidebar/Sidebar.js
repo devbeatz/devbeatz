@@ -99,7 +99,7 @@ function Sidebar(props) {
               onClick={handleGenreSelect}
               id="HipHop-track-links"
             >
-              Hip-Hop
+              Hip Hop
             </button>
           </Link>
           <Link to="/Browse">

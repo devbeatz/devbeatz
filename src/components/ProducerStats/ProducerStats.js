@@ -1,6 +1,7 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { connect } from "react-redux";
+import "../ProducerStats/ProducerStats.scss";
 
 const ProducerStats = props => {
   const trackNames = props.userUploaded.map(track => {
@@ -29,17 +30,27 @@ const ProducerStats = props => {
   console.log(trackSales);
   console.log(trackNames);
   return (
-    <div className="main">
-      <div className="total-amount">${totalSold}</div>
-      <div className="doughnut-chart">
+    <div className="main-stats">
+      <div id="total-amount">TOTAL REVENUE: ${totalSold}</div>
+      <p />
+      <div id="doughnut-chart">
         <Doughnut
           data={{
             labels: trackNames,
             datasets: [
               {
                 label: "My First dataset",
-                backgroundColor: ["yellow", "red", "blue", "purple", "green"],
-                borderColor: "rgb(255, 99, 132)",
+                backgroundColor: [
+                  "Honeydew",
+                  "DarkRed",
+                  "LightSteelBlue",
+                  "Indigo",
+                  "MediumSeaGreen",
+                  "FireBrick",
+                  "CadetBlue",
+                  "PaleGreen"
+                ],
+                borderColor: "transparent",
                 data: trackSales
               }
             ]

@@ -113,16 +113,29 @@ function Dashboard(props) {
                   return (
                     <div key={i}>
                       <p>{e.track_name}</p>
-                      <p>uploaded on {e.upload_date.split("T")[0]}</p>
-                      <p>sold {e.sell_count} times</p>
+
+                      <p>Uploaded on: {e.upload_date.split("T")[0]}</p>
+
+                      <p>Sold: {e.sell_count} times</p>
+
                       <p>
-                        profits: $
+                        Profits: $
                         {e.exclusive
                           ? excl + base * (e.sell_count - 1)
                           : base * e.sell_count}
                       </p>
-                      <button onClick={() => handleEditTrack(e)}>Edit</button>
-                      <button onClick={() => handleDeleteTrack(e.track_id)}>
+
+                      <button
+                        className="db-upload-buttons"
+                        onClick={() => handleEditTrack(e)}
+                      >
+                        Edit
+                      </button>
+
+                      <button
+                        className="db-upload-buttons"
+                        onClick={() => handleDeleteTrack(e.track_id)}
+                      >
                         Delete
                       </button>
                     </div>
