@@ -3,6 +3,7 @@ describe("Website setup", () => {
     cy.visit("http://localhost:3000");
   });
 });
+
 describe("Should be able to click on the login button on the homepage and login", () => {
   it("Should be able to click the login button", () => {
     cy.get("#login").click();
