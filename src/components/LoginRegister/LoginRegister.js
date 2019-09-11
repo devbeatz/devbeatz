@@ -64,7 +64,7 @@ function LoginRegister(props) {
         centered
         autoFocus
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton id="closeButton">
           <Modal.Title id="contained-modal-title-vcenter">
             <div id="logo">BtZ</div>
             <h1>BEATZ</h1>
