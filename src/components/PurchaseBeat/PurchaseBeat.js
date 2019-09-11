@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../LoginRegister/LoginRegister.scss";
 import { connect } from "react-redux";
 import { Modal } from "react-bootstrap";
 import StripeForm from "./StripeForm";
+import "../LoginRegister/LoginRegister.scss";
+import "../PurchaseBeat/PurchaseBeat.scss";
 import {
   StripeProvider,
   Elements,
