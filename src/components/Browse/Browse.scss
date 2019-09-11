@@ -158,3 +158,17 @@
     }
   }
 }
+
+.page-link {
+  background: transparent;
+  color: white;
+}
+
+.page-item.active .page-link {
+  background-color: lightgray;
+  border-color: white;
+}
+
+.page-item {
+  background: transparent;
+}
