@@ -28,7 +28,7 @@ function Sidebar(props) {
           <img src={btzLogo} alt="" />
         </div>
         <Link to="/">
-          <h1>Beatz</h1>
+          <h1 id="beatzHomepage">Beatz</h1>
         </Link>
       </div>
       <div id="dashboard-buttons-div">
@@ -67,12 +67,18 @@ function Sidebar(props) {
               className="link"
               name="Alternative"
               onClick={handleGenreSelect}
+              id="Alternative-track-links"
             >
               Alternative
             </button>
           </Link>
           <Link to="/Browse">
-            <button className="link" name="Blues" onClick={handleGenreSelect}>
+            <button
+              className="link"
+              name="Blues"
+              onClick={handleGenreSelect}
+              id="Blues-track-links"
+            >
               Blues
             </button>
           </Link>
@@ -81,13 +87,19 @@ function Sidebar(props) {
               className="link"
               name="Freestyle"
               onClick={handleGenreSelect}
+              id="Freestyle-track-links"
             >
               Freestyle
             </button>
           </Link>
           <Link to="/Browse">
-            <button className="link" name="Hip-Hop" onClick={handleGenreSelect}>
-              Hip-Hop
+            <button
+              className="link"
+              name="Hip-Hop"
+              onClick={handleGenreSelect}
+              id="HipHop-track-links"
+            >
+              Hip Hop
             </button>
           </Link>
           <Link to="/Browse">
@@ -95,12 +107,18 @@ function Sidebar(props) {
               className="link"
               name="Old-School"
               onClick={handleGenreSelect}
+              id="OldSchool-track-links"
             >
               Old School
             </button>
           </Link>
           <Link to="/Browse">
-            <button className="link" name="Pop" onClick={handleGenreSelect}>
+            <button
+              className="link"
+              name="Pop"
+              onClick={handleGenreSelect}
+              id="Pop-track-links"
+            >
               Pop
             </button>
           </Link>

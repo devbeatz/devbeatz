@@ -30,44 +30,44 @@ describe("getAllTracks", () => {
   });
 });
 
-<<<<<<< HEAD
-test('Get user tracks', () => {
+test("Get user tracks", () => {
   expect(getTracksByUser()).toEqual({
     type: GET_TRACKS_BY_USER,
     payload: axios.get("/api/tracks/getuser")
-  })
-})
+  });
+});
 
-test('Adding track', () => {
-  expect(addTrack({track_name: 'unit test', })).toEqual({
+test("Adding track", () => {
+  expect(addTrack({ track_name: "unit test" })).toEqual({
     type: ADD_TRACK,
-    payload: axios.post("/api/tracks/create", {track_name: 'unit test'})
-  })
-})
+    payload: axios.post("/api/tracks/create", { track_name: "unit test" })
+  });
+});
 
-test('Deleting track', () => {
+test("Deleting track", () => {
   expect(deleteTrack(113)).toEqual({
     type: DELETE_TRACK,
     payload: axios.delete(`/api/tracks/delete/113`)
-  })
-})
+  });
+});
 
-test('Updating track', () => {
-  expect(updateTrack(113, {track_name: 'updatedTrackName'})).toEqual({
+test("Updating track", () => {
+  expect(updateTrack(113, { track_name: "updatedTrackName" })).toEqual({
     type: UPDATE_TRACK,
-    payload: axios.put(`/api/tracks/update/${113}`, {track_name: 'updatedTrackName'})
-  })
-})
+    payload: axios.put(`/api/tracks/update/${113}`, {
+      track_name: "updatedTrackName"
+    })
+  });
+});
 
 test("Input with banana", () => {
-=======
->>>>>>> master
-test("Should Hit GET Endpoint for getall tracks", () => {
-  expect(getAllTracks()).toEqual({
-    type: GET_ALL_TRACKS,
-    payload: axios.get("/api/tracks/getall")
+  test("Should Hit GET Endpoint for getall tracks", () => {
+    expect(getAllTracks()).toEqual({
+      type: GET_ALL_TRACKS,
+      payload: axios.get("/api/tracks/getall")
+    });
   });
-})});
+});
 
 test("should only have a type of 'RESET_GENRE' and no payload", () => {
   expect(resetGenre()).toEqual({

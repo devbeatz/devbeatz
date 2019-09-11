@@ -5,9 +5,11 @@
   height: 100vh;
   display: flex;
   background: rgb(180, 61, 101);
-  background: linear-gradient(308deg,
-      rgba(180, 61, 101, 1) 5%,
-      rgba(28, 0, 4, 1) 100%);
+  background: linear-gradient(
+    308deg,
+    rgba(180, 61, 101, 1) 5%,
+    rgba(28, 0, 4, 1) 100%
+  );
   position: absolute;
   background-size: fill;
   font-family: "Work Sans", sans-serif;
@@ -57,7 +59,6 @@
       height: fit-content;
       padding: 50px 0;
       width: 100%;
-      background-color: lightgray;
     }
 
     #dashboard-main {
@@ -77,7 +78,7 @@
           display: flex;
           justify-content: center;
 
-          &>div {
+          & > div {
             // height: 200px;
             // width: 200px;
             // background-color: lightgray;
@@ -93,7 +94,7 @@
         #uploaded-beats {
           width: 70%;
 
-          &>div {
+          & > div {
             display: flex;
             width: 80%;
             justify-content: space-between;

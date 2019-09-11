@@ -28,7 +28,7 @@ function PurchaseBeat(props) {
         centered
         autofocus
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton id="closeButton">
           <Modal.Title>
             <div>Purchase</div>
             <h1>{props.track_name}</h1>

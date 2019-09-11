@@ -64,7 +64,7 @@ function LoginRegister(props) {
         centered
         autoFocus
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton id="closeButton">
           <Modal.Title id="contained-modal-title-vcenter">
             <div id="logo">BtZ</div>
             <h1>BEATZ</h1>
@@ -76,24 +76,28 @@ function LoginRegister(props) {
               <h4>Register</h4>
               <h3>Username</h3>
               <input
+                id="registerUsername"
                 value={username}
                 onChange={e => setUsername(e.target.value)}
                 type="text"
               />
               <h3>E-mail</h3>
               <input
+                id="registerEmail"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 type="text"
               />
               <h3>Password</h3>
               <input
+                id="registerPassword1"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 type="password"
               />
               <h3>Confirm Password</h3>
               <input
+                id="registerPassword2"
                 value={confirmPassword}
                 onChange={e => setConfirmPassword(e.target.value)}
                 type="password"
@@ -105,19 +109,23 @@ function LoginRegister(props) {
               )}
               {props.error && <p>{props.errorMessage}</p>}
               <p />
-              <button onClick={handleRegister}>Register</button>
+              <button id="registerButton" onClick={handleRegister}>
+                Register
+              </button>
             </div>
           )}
           {props.loginRegister === "login" && (
             <div id="login-form">
               <h3>Email</h3>
               <input
+                id="loginUsername"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 type="text"
               />
               <h3>Password</h3>
               <input
+                id="loginPassword"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 type="password"
@@ -125,17 +133,25 @@ function LoginRegister(props) {
               {error && <p>Please enter your email and password.</p>}
               {props.error && <p>{props.errorMessage}</p>}
               <p />
-              <button onClick={handleLogin}>Login</button>
+              <button id="loginButton" onClick={handleLogin}>
+                Login
+              </button>
             </div>
           )}
         </Modal.Body>
         <Modal.Footer>
           {props.loginRegister === "register" ? (
-            <button onClick={() => props.toggleLoginRegister("login")}>
+            <button
+              id="switchToLogin"
+              onClick={() => props.toggleLoginRegister("login")}
+            >
               login
             </button>
           ) : (
-            <button onClick={() => props.toggleLoginRegister("register")}>
+            <button
+              id="switchToRegister"
+              onClick={() => props.toggleLoginRegister("register")}
+            >
               Register
             </button>
           )}

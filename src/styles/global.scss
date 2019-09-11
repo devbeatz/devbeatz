@@ -3,10 +3,8 @@
 $pink-color: #e91e63;
 $neon-blue-color: #19f4fb;
 $emphasis-color: #e91e63;
-$header-font: "Righteous",
-cursive;
-$body-font: "Work Sans",
-sans-serif;
+$header-font: "Righteous", cursive;
+$body-font: "Work Sans", sans-serif;
 $body-font-color: white;
 
 button {
@@ -45,5 +43,36 @@ a {
 
   &:visited {
     color: $neon-blue-color;
+  }
+}
+
+.db-upload-buttons {
+  width: 10%;
+  border: none;
+  box-shadow: none;
+  color: #b0c4de;
+  transition: none;
+
+  &:hover {
+    background: transparent;
+    box-shadow: none;
+    font-weight: bold;
+  }
+}
+
+.link {
+  // width: 8%;
+  border: none;
+  box-shadow: none;
+  transition: none;
+  display: flex;
+  align-items: flex-start;
+  letter-spacing: 0.15em;
+  margin-right: 25px;
+
+  &:hover {
+    background: transparent;
+    box-shadow: none;
+    font-weight: bold;
   }
 }

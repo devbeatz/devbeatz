@@ -38,10 +38,13 @@ function Homepage(props) {
             {/* </p> */}
           </div>
           <div id="login-register-buttons">
-            <button onClick={() => props.toggleLoginModal("register")}>
+            <button
+              id="register"
+              onClick={() => props.toggleLoginModal("register")}
+            >
               Register
             </button>
-            <button onClick={() => props.toggleLoginModal("login")}>
+            <button id="login" onClick={() => props.toggleLoginModal("login")}>
               Login
             </button>
           </div>
