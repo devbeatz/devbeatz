@@ -6,7 +6,7 @@ const auth = require("./controllers/authController");
 const tracks = require("./controllers/trackController");
 const purchases = require("./controllers/purchaseController");
 const sign_s3 = require("./controllers/awsController");
-const router = require('./routes');
+const router = require("./routes");
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, Secret } = process.env;
 
 const app = express();
@@ -28,6 +28,7 @@ massive(CONNECTION_STRING).then(db => {
 });
 
 app.use("/sign_s3", sign_s3.sign_s3);
+app.use(express.static(`${__dirname}/../build`));
 
 //auth
 app.post("/auth/register", auth.register);
