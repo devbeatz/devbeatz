@@ -104,7 +104,6 @@ function UploadBeat(props) {
               marginRight: "6px"
             }}
           >
-            {" "}
             Alternative
           </label>
           <input
