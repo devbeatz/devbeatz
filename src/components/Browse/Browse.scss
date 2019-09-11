@@ -172,3 +172,10 @@
 .page-item {
   background: transparent;
 }
+
+@media (min-width: 1000px) {
+  img.responsive {
+    width: 220px;
+    margin-top: -10px;
+  }
+}

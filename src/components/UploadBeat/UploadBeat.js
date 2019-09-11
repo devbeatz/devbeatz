@@ -97,7 +97,16 @@ function UploadBeat(props) {
             type="checkbox"
             name="Alternative"
           />
-          <label for="alternative">Alternative</label>
+          <label
+            for="alternative"
+            style={{
+              marginLeft: "2px",
+              marginRight: "6px"
+            }}
+          >
+            {" "}
+            Alternative
+          </label>
           <input
             onChange={e => setGenre([...genre, e.target.name])}
             type="checkbox"
