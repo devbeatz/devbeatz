@@ -1,68 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## DevBeatz
 
-## Available Scripts
+###A Group Project created by Tabitha Sin, Jack Lenihan and Nolan Harris.
 
-In the project directory, you can run:
+DevBeatz is a Marketplace that brings Producers together with Vocal Artists. Producers can upload 'beats' that they have created and set two prices: one price to purchase rights to use the beat, and another to purchase the exclusive rights to use the beat and removing the track from the list of available beats for future artists to purcase.
 
-### `npm start`
+###Technologies Used
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+React w/ Hooks, Redux, Node.js, Express, PostgreSQL, Massive, AWS, BCryptJS, Sass, Stripe, Axios, Bootstrap, ChartJS, Cypress
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+###Completed By Nolan J Harris
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Nolan was responsible for most of the front end development using React and focusing on functional Components using Hooks. This was his first real exposure to using Hooks such as useState and useEffect for an entire project and was a great learning experience. He also set up Redux using react-redux and redux-promise-middleware. He and Jack worked together to get Amazon Web Services S3 set up to be able to upload audio files to the cloud and retrieve them upon request. Nolan describes this as his biggest struggle throughout the project. AWS is complicated but ultimately the group overcame the challenges and succeeded in thier goal to store all audio on S3.
