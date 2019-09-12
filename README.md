@@ -21,3 +21,7 @@ Nolan was responsible for most of the front end development using React and focu
 ![Dashboard](/src/images/devbeatzBrowse.jpg)
 
 ![Dashboard](/src/images/devBeatzDashboard.jpg)
+
+### Completed By Jack Lenihan
+
+Jack handled the majority of the backend and database using node.js and SQL. Given that the application displays alot of categorized and or filtered data, this build greatly increased Jack's ability to write targeted SQL queries. He also worked with Nolan on uploading and retrieving audio files from the s3 bucket. Jack was also responsible for faciliating the purchase of beats. This required the implementation of stripe which was something Jack had not worked with before. The Stripe modal was not used; instead, Stripe elements were directly integrated and formatted on the site which was a much more hands on process and was a great learning experience.x
