@@ -6,6 +6,7 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 2.8em;
+  // width: 85%;
 }
 
 #total-amount {
@@ -17,4 +18,27 @@ body {
 
 #doughnut-chart {
   margin-right: 25%;
+  // height: 100%;
+  // width: 50%;
+}
+
+.chartjs-render-monitor {
+  height: 300px !important;
+  width: 600px !important;
+}
+
+@media (min-width: 1000px) {
+  #total-amount {
+    margin-left: 20%;
+
+    #revenue-stats {
+      font-size: 1.1em;
+
+      #money-amount {
+        font-size: 1.8em;
+        font-weight: 600;
+        color: honeydew;
+      }
+    }
+  }
 }
