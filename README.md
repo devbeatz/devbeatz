@@ -1,6 +1,6 @@
 ## DevBeatz
 
-### A Group Project created by Tabitha Sin, Jack Lenihan and Nolan Harris.
+### A Group Project created by [Tabitha Sin](https://github.com/tkxx), [Jack Lenihan](https://github.com/Jack-B-Lenihan) and [Nolan J Harris](https://github.com/NolanJHarris)
 
 DevBeatz is a Marketplace that brings Producers together with Vocal Artists. Producers can upload 'beats' that they have created and set two prices: one price to purchase rights to use the beat, and another to purchase the exclusive rights to use the beat and removing the track from the list of available beats for future artists to purcase.
 
