@@ -89,6 +89,11 @@
       width: 30px;
       width: 30px;
     }
+
+    #dollar-icon {
+      width: 30px;
+      width: 30px;
+    }
   }
 
   @media (max-width: 975px) {
@@ -109,5 +114,11 @@
       height: 30px;
       width: 30px;
     }
+  }
+}
+
+@media (min-width: 1000px) {
+  #track-player-div {
+    width: 75%;
   }
 }

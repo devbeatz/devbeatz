@@ -64,7 +64,7 @@
 #sidebar-search {
   display: flex;
   flex-direction: column;
-  padding-bottom: 190px;
+  // padding-bottom: 190px;
 }
 
 //MEDIA QUERY FOR SMALLER DEVICES
@@ -89,4 +89,11 @@
 
   // #sidebar-search {
   // }
+}
+
+//MEDIA QUERY FOR LARGER DEVICES
+@media (min-width: 1000px) {
+  #sidebar-search {
+    margin-bottom: 90px;
+  }
 }
