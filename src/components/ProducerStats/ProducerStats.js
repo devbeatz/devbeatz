@@ -31,8 +31,12 @@ const ProducerStats = props => {
   console.log(trackNames);
   return (
     <div className="main-stats">
-      <div id="total-amount">TOTAL REVENUE: ${totalSold}</div>
-      <p />
+      <div id="total-amount">
+        <h2 id="revenue-stats">
+          TOTAL REVENUE: <span id="money-amount">${totalSold}</span>
+        </h2>
+      </div>
+      {/* <p /> */}
       <div id="doughnut-chart">
         <Doughnut
           data={{
@@ -51,6 +55,7 @@ const ProducerStats = props => {
                   "PaleGreen"
                 ],
                 borderColor: "transparent",
+                hover: "transparent",
                 data: trackSales
               }
             ]

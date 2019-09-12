@@ -4,19 +4,21 @@ import ClippPlayer from "clipp-player";
 import sampleImage from "../../images/dj-sound-mixer.jpg";
 import download from "../../images/downloadButton.png";
 import dollar from "../../images/USdollar.png";
-import PuchaseBeat from '../PurchaseBeat/PurchaseBeat';
+import PuchaseBeat from "../PurchaseBeat/PurchaseBeat";
 import PurchaseBeat from "../PurchaseBeat/PurchaseBeat";
 
 function Track(props) {
-  const [ purchase, setPurchase ] = useState(false);
+  const [purchase, setPurchase] = useState(false);
   return (
     <div id="track">
-      < PurchaseBeat show={purchase} onHide={() => setPurchase(false)}
-      base_price={props.basePrice}
-      exclusive_price={props.exclusivePrice}
-      track_name={props.trackTitle}
-      track_id={props.track_id}
-      track_url={props.track_url}
+      <PurchaseBeat
+        show={purchase}
+        onHide={() => setPurchase(false)}
+        base_price={props.basePrice}
+        exclusive_price={props.exclusivePrice}
+        track_name={props.trackTitle}
+        track_id={props.track_id}
+        track_url={props.track_url}
       />
       <div id="track-player-div">
         <div id="track-info">
@@ -78,8 +80,8 @@ function Track(props) {
             <img src={download} alt="" className="download-icon" />
           </a>
         ) : (
-          <button id="dollar-button" onClick={() => setPurchase(true)} >
-            <img src={dollar} alt="" className="download-icon" />
+          <button id="dollar-button" onClick={() => setPurchase(true)}>
+            <img id="dollar-icon" src={dollar} alt="" />
           </button>
         )}
         {/* <button>

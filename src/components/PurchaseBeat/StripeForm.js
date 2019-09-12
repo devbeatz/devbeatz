@@ -39,13 +39,14 @@ function StripeForm(props) {
 
   return (
     <form onSubmit={submitHandler}>
-      <label>Name</label>
+      <label style={{ paddingRight: "10px" }}>Name </label>
       <input
         value={username}
         onChange={e => setUsername(e.target.value)}
       ></input>
-
-      <label>Exclusive: {props.exclusive}</label>
+      <label style={{ paddingLeft: "10px" }}>
+        Buy Exclusive: {props.exclusive}
+      </label>{" "}
       <input
         value={exclusive}
         onChange={e => {
@@ -54,13 +55,12 @@ function StripeForm(props) {
         }}
         type="checkbox"
       />
-
-      <h3>Total: {Amount}</h3>
-
-      <CardElement />
-
+      <h3 style={{ marginBottom: "10px" }}>Total: {Amount}</h3>
+      <CardElement style={{ base: { color: "white" } }} />
       <a href={props.trackUrl} download>
-        <button type="submit">Confirm</button>
+        <button type="submit" style={{ marginTop: "10px" }}>
+          Confirm
+        </button>
       </a>
     </form>
   );

@@ -123,17 +123,26 @@ function Sidebar(props) {
             </button>
           </Link>
           <Link to="/Browse">
-            <button className="link" name="RnB" onClick={handleGenreSelect}>
+            <button 
+              className="link" 
+              name="RnB" onClick={handleGenreSelect}
+              id='RnB-track-links'>
               R&B
             </button>
           </Link>
           <Link to="/Browse">
-            <button className="link" name="Soul" onClick={handleGenreSelect}>
+            <button 
+              className="link" 
+              name="Soul" onClick={handleGenreSelect}
+              id='Soul-track-links'>
               Soul
             </button>
           </Link>
           <Link to="/Browse">
-            <button className="link" name="Trap" onClick={handleGenreSelect}>
+            <button 
+              className="link"
+              name="Trap" onClick={handleGenreSelect}
+              id='Trap-track-links'>
               Trap
             </button>
           </Link>
@@ -142,6 +151,7 @@ function Sidebar(props) {
               className="link"
               name="Underground"
               onClick={handleGenreSelect}
+              id='Underground-track-links'
             >
               Underground
             </button>
